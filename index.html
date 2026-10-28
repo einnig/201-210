@@ -33,7 +33,6 @@
             margin-top: 0;
             margin-bottom: 15px;
         }
-        /* Framvindustika */
         .progress-container {
             width: 100%;
             background-color: #e0e0e0;
@@ -48,9 +47,7 @@
             border-radius: 10px;
             transition: width 0.5s ease-in-out;
         }
-        
         #counter { font-size: 1.2em; color: #666; font-weight: bold; margin-bottom: 10px; }
-
         .lang-selector {
             margin-bottom: 20px;
             background: #fff3e0;
@@ -59,7 +56,6 @@
             display: inline-block;
             border: 1px solid #ffcc80;
         }
-
         .lang-selector select {
             padding: 8px;
             font-size: 1.1em;
@@ -69,14 +65,12 @@
             margin-left: 10px;
             max-width: 300px;
         }
-        
         #target { 
             font-size: 4em; 
             margin: 10px 0; 
             color: #222; 
             font-weight: bold;
         }
-        
         #is-explanation {
             font-size: 1.2em;
             color: #333;
@@ -89,7 +83,7 @@
             line-height: 1.6;
             text-align: left;
         }
-
+        #is-explanation p { margin: 5px 0; }
         .btn { 
             padding: 12px 25px; 
             font-size: 1.2em; 
@@ -105,13 +99,11 @@
         .btn:hover:not(:disabled) { background-color: #1557b0; transform: scale(1.02); }
         .recording { background-color: #d93025; animation: pulse 1.5s infinite; }
         .recording:hover { background-color: #b3140b; }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-
         #media-box { 
             font-size: 1.1em; 
             color: #444; 
@@ -125,21 +117,9 @@
             display: inline-block;
             min-width: 70%;
         }
-        #spoken {
-            margin-top: 15px; 
-            font-size: 1.4em;
-            font-style: italic; 
-            color: #555;
-        }
-        #result {
-            font-weight: bold; 
-            font-size: 1.8em; 
-            margin-top: 5px; 
-            color: #1a73e8;
-        }
+        #spoken { margin-top: 15px; font-size: 1.4em; font-style: italic; color: #555; }
+        #result { font-weight: bold; font-size: 1.8em; margin-top: 5px; color: #1a73e8; }
         .nav-btns { margin-top: 20px; }
-        
-        /* Fyrir nafnainnslátt */
         #studentName {
             font-size: 1.5em;
             padding: 10px;
@@ -150,7 +130,6 @@
             border-radius: 8px;
             text-align: center;
         }
-
         .feedback-note {
             margin-top: 40px;
             font-size: 0.95em;
@@ -158,148 +137,500 @@
             padding-top: 15px;
             border-top: 1px solid #ddd;
         }
-        .feedback-note a {
-            color: #1a73e8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .feedback-note a:hover {
-            text-decoration: underline;
-        }
+        .feedback-note a { color: #1a73e8; text-decoration: none; font-weight: bold; }
+        .feedback-note a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
 <div class="container" id="app">
-    <h1>Markorð: 201 - 210 algengustu orðin.</h1>
+    <div id="exercise-view">
+        <h1>Markorð: 201 - 210 algengustu orðin.</h1>
+        <div class="progress-container"><div id="progress-bar"></div></div>
+        
+        <div class="lang-selector">
+            <label for="languageSelect"><b>🌍 Veldu tungumál:</b></label>
+            <select id="languageSelect" onchange="updateUI()">
+                <option value="none" selected disabled>-- Veldu tungumál --</option>
+                <option value="ar">Arabíska – العربية</option>
+                <option value="da">Danska – Dansk</option>
+                <option value="en">Enska – English</option>
+                <option value="tl">Filippseyska – Tagalog</option>
+                <option value="no">Norska – Norsk</option>
+                <option value="fa">Persneska – فارسی</option>
+                <option value="pl">Pólska – Polski</option>
+                <option value="ru">Rússneska – Русский</option>
+                <option value="es">Spænska – Español</option>
+                <option value="sv">Sænska – Svenska</option>
+                <option value="th">Tælenska – ภาษาไทย</option>
+                <option value="uk">Úkraínska – Українська</option>
+                <option value="vi">Víetnamska – Tiếng Việt</option>
+            </select>
+        </div>
+
+        <div id="counter"></div>
+        <div id="target"></div>
+        <div id="is-explanation"></div>
+        <br>
+        <button id="record-btn" class="btn" onclick="toggleRecord()">🎤 Tala</button>
+        <div id="spoken"></div>
+        <div id="result"></div>
+        <div id="media-box"></div>
+        <div class="nav-btns">
+            <button class="btn" style="background-color: #5f6368;" onclick="prevExercise()">⬅️ Fyrri</button>
+            <button class="btn" style="background-color: #5f6368;" onclick="nextExercise()">Næsta ➡️</button>
+        </div>
+        <div class="feedback-note">
+            Vinsamlegast sendið ábendingar á <a href="mailto:dgu@fb.is">dgu@fb.is</a>
+        </div>
+    </div>
     
-    <div class="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-
-    <div class="lang-selector">
-        <label for="languageSelect"><b>🌍 Veldu tungumál:</b></label>
-        <select id="languageSelect" onchange="updateUI()">
-            <option value="ar">Arabíska – العربية</option>
-            <option value="da">Danska – Dansk</option>
-            <option value="en" selected>Enska – English</option>
-            <option value="tl">Filippseyska – Tagalog / Filipino</option>
-            <option value="fr">Franska – Français</option>
-            <option value="lv">Lettneska – Latviešu</option>
-            <option value="lt">Litháíska – Lietuvių</option>
-            <option value="no">Norska – Norsk</option>
-            <option value="fa">Persneska – فارسی</option>
-            <option value="pt">Portúgalska – Português</option>
-            <option value="pl">Pólska – Polski</option>
-            <option value="ro">Rúmenska – Română</option>
-            <option value="ru">Rússneska – Русский</option>
-            <option value="es">Spænska – Español</option>
-            <option value="sv">Sænska – Svenska</option>
-            <option value="th">Tælenska – ภาษาไทย</option>
-            <option value="uk">Úkraínska – Українська</option>
-            <option value="vi">Víetnamska – Tiếng Việt</option>
-        </select>
-    </div>
-
-    <div id="counter"></div>
-    
-    <div id="target"></div>
-    <div id="is-explanation"></div>
-    <br>
-    <button id="record-btn" class="btn" onclick="toggleRecord()">🎤 Tala</button>
-    
-    <div id="spoken"></div>
-    <div id="result"></div>
-
-    <div id="media-box"></div>
-
-    <div class="nav-btns">
-        <button class="btn" style="background-color: #5f6368;" onclick="prevExercise()">⬅️ Fyrri</button>
-        <button class="btn" style="background-color: #5f6368;" onclick="nextExercise()">Næsta ➡️</button>
-    </div>
-
-    <div class="feedback-note">
-        Vinsamlegast sendið ábendingar á <a href="mailto:dgu@fb.is">dgu@fb.is</a>
-    </div>
+    <div id="completion-view" style="display: none;"></div>
 </div>
 
 <script>
 const exerciseData = [
     { 
         text: "áfram", 
-        is_exp: "<b>Útskýring:</b> Atviksorð sem merkir að halda leiðinni áfram eða gera eitthvað lengur.<br><b>Samheiti:</b> áleiðis, lengur.<br><b>Dæmi:</b> Við höldum <b>áfram</b> að læra.",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Að halda leiðinni lengra eða halda áfram að gera eitthvað án þess að stoppa eða gefast upp.</p><p><b>Samheiti:</b> áleiðis, lengur.</p><p><b>Dæmi:</b> Við höldum <b>áfram</b> að læra.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> ظرف يعني الاستمرار أو المضي قدماً.<br><b>مثال:</b> نحن <b>نواصل</b> التعلم.</div>",
-            "da": "<b>Forklaring:</b> Biord, der betyder at fortsætte eller gå fremad.<br><b>Eksempel:</b> Vi fortsætter <b>fremad</b> med at lære.",
-            "en": "<b>Explanation:</b> Adverb meaning to continue or move forward.<br><b>Example:</b> We <b>continue</b> to study.",
-            "tl": "<b>Paliwanag:</b> Pang-abay na nangangahulugang magpatuloy o sumulong.<br><b>Halimbawa:</b> <b>Patuloy</b> tayong nag-aaral.",
-            "fr": "<b>Explication:</b> Adverbe signifiant continuer ou avancer.<br><b>Exemple:</b> Nous <b>continuons</b> à étudier.",
-            "lv": "<b>Paskaidrojums:</b> Apstākļa vārds, kas nozīmē turpināt vai virzīties uz priekšu.<br><b>Piemērs:</b> Mēs <b>turpinām</b> mācīties.",
-            "lt": "<b>Paaiškinimas:</b> Prievezmis, reiškiantis tęsti arba judėti į priekį.<br><b>Pavyzdys:</b> Mes <b>tęsiame</b> mokymąsi.",
-            "no": "<b>Forklaring:</b> Adverb som betyr å fortsette eller gå fremover.<br><b>Eksempel:</b> Vi fortsetter <b>videre</b> å lære.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> قید به معنی ادامه دادن یا به جلو حرکت کردن.<br><b>مثال:</b> ما به یادگیری <b>ادامه می‌دهیم</b>.</div>",
-            "pt": "<b>Explicação:</b> Advérbio que significa continuar ou seguir em frente.<br><b>Exemplo:</b> Nós <b>continuamos</b> a estudar.",
-            "pl": "<b>Wyjaśnienie:</b> Przysłówek oznaczający kontynuowanie lub posuwanie się naprzód.<br><b>Przykład:</b> <b>Kontynuujemy</b> naukę.",
-            "ro": "<b>Explicație:</b> Adverb care înseamnă a continua sau a merge înainte.<br><b>Exemplu:</b> Noi <b>continuăm</b> să învățăm.",
-            "ru": "<b>Объяснение:</b> Наречие, означающее продолжать или двигаться вперед.<br><b>Пример:</b> Мы <b>продолжаем</b> учиться.",
-            "es": "<b>Explicación:</b> Adverbio que significa continuar o seguir adelante.<br><b>Ejemplo:</b> <b>Continuamos</b> estudiando.",
-            "sv": "<b>Förklaring:</b> Adverb som betyder att fortsätta eller gå framåt.<br><b>Exempel:</b> Vi fortsätter <b>vidare</b> att studera.",
-            "th": "<b>คำอธิบาย:</b> กริยาวิเศษณ์หมายถึงดำเนินการต่อหรือก้าวไปข้างหน้า<br><b>ตัวอย่าง:</b> เราเรียนกัน<b>ต่อไป</b>",
-            "uk": "<b>Пояснення:</b> Прислівник, що означає продовжувати або рухатися вперед.<br><b>Приклад:</b> Ми <b>продовжуємо</b> вчитися.",
-            "vi": "<b>Giải thích:</b> Trạng từ có nghĩa là tiếp tục hoặc tiến về phía trước.<br><b>Ví dụ:</b> Chúng ta <b>tiếp tục</b> học."
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> الاستمرار أو المضي قدماً.<br><b>مثال:</b> نحن <b>نواصل</b> التعلم.</div>",
+            "da": "<b>Forklaring:</b> At fortsætte eller gå fremad.<br><b>Eksempel:</b> Vi fortsætter <b>videre</b> med at lære.",
+            "en": "<b>Explanation:</b> To continue or move forward.<br><b>Example:</b> We <b>continue</b> to study.",
+            "tl": "<b>Paliwanag:</b> Magpatuloy o sumulong.<br><b>Halimbawa:</b> <b>Patuloy</b> tayong nag-aaral.",
+            "no": "<b>Forklaring:</b> Å fortsette eller gå fremover.<br><b>Eksempel:</b> Vi fortsetter <b>videre</b> å lære.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> ادامه دادن یا به جلو حرکت کردن.<br><b>مثال:</b> ما به یادگیری <b>ادامه می‌دهیم</b>.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Kontynuować lub posuwać się naprzód.<br><b>Przykład:</b> <b>Kontynuujemy</b> naukę.",
+            "ru": "<b>Объяснение:</b> Продолжать или двигаться вперед.<br><b>Пример:</b> Мы <b>продолжаем</b> учиться.",
+            "es": "<b>Explicación:</b> Continuar o seguir adelante.<br><b>Ejemplo:</b> <b>Continuamos</b> estudiando.",
+            "sv": "<b>Förklaring:</b> Att fortsätta eller gå framåt.<br><b>Exempel:</b> Vi fortsätter <b>vidare</b> att studera.",
+            "th": "<b>คำอธิบาย:</b> ดำเนินการต่อหรือก้าวไปข้างหน้า<br><b>ตัวอย่าง:</b> เราเรียนกัน<b>ต่อไป</b>",
+            "uk": "<b>Пояснення:</b> Продовжувати або рухатися вперед.<br><b>Приклад:</b> Ми <b>продовжуємо</b> вчитися.",
+            "vi": "<b>Giải thích:</b> Tiếp tục hoặc tiến về phía trước.<br><b>Ví dụ:</b> Chúng ta <b>tiếp tục</b> học."
         }
     },
     { 
         text: "fyrr", 
-        is_exp: "<b>Útskýring:</b> Tíðaratviksorð sem vísar til tíma sem var áður eða snemma.<br><b>Samheiti:</b> áður.<br><b>Dæmi:</b> Ég vaknaði <b>fyrr</b> í dag.",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Vísar til tíma sem var áður eða að eitthvað gerist snemma eða fyrr en venjulega.</p><p><b>Samheiti:</b> áður, snemmar.</p><p><b>Dæmi:</b> Ég vaknaði <b>fyrr</b> í dag.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> ظرف زمان يشير إلى وقت سابق أو مبكر.<br><b>مثال:</b> استيقظت <b>في وقت أبكر</b> اليوم.</div>",
-            "da": "<b>Forklaring:</b> Tidsbiord, der refererer til en tidligere tid.<br><b>Eksempel:</b> Jeg vågnede <b>tidligere</b> i dag.",
-            "en": "<b>Explanation:</b> Adverb of time referring to an earlier time or before.<br><b>Example:</b> I woke up <b>earlier</b> today.",
-            "tl": "<b>Paliwanag:</b> Pang-abay na pamanahon na tumutukoy sa mas maagang oras.<br><b>Halimbawa:</b> Gumising ako nang <b>mas maaga</b> ngayon.",
-            "fr": "<b>Explication:</b> Adverbe de temps faisant référence à une heure antérieure.<br><b>Exemple:</b> Je me suis réveillé <b>plus tôt</b> aujourd'hui.",
-            "lv": "<b>Paskaidrojums:</b> Laika apstākļa vārds, kas attiecas uz agrāku laiku.<br><b>Piemērs:</b> Šodien es pamodos <b>agrāk</b>.",
-            "lt": "<b>Paaiškinimas:</b> Laiko prievezmis, nurodantis ankstesnį laiką.<br><b>Pavyzdys:</b> Šiandien atsibudau <b>anksčiau</b>.",
-            "no": "<b>Forklaring:</b> Tidsadverb som refererer til en tidligere tid.<br><b>Eksempel:</b> Jeg våknet <b>tidligere</b> i dag.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> قید زمانی که به زمان قبل‌تر اشاره می‌کند.<br><b>مثال:</b> من امروز <b>زودتر</b> بیدار شدم.</div>",
-            "pt": "<b>Explicação:</b> Advérbio de tempo referindo-se a um momento anterior.<br><b>Exemplo:</b> Eu acordei <b>mais cedo</b> hoje.",
-            "pl": "<b>Wyjaśnienie:</b> Przysłówek czasu odnoszący się do wcześniejszego momentu.<br><b>Przykład:</b> Obudziłem się dziś <b>wcześniej</b>.",
-            "ro": "<b>Explicație:</b> Adverb de timp care se referă la un moment anterior.<br><b>Exemplu:</b> M-am trezit <b>mai devreme</b> azi.",
-            "ru": "<b>Объяснение:</b> Наречие времени, указывающее на более раннее время.<br><b>Пример:</b> Сегодня я проснулся <b>раньше</b>.",
-            "es": "<b>Explicación:</b> Adverbio de tiempo que se refiere a un momento anterior.<br><b>Ejemplo:</b> Me desperté <b>más temprano</b> hoy.",
-            "sv": "<b>Förklaring:</b> Tidsadverb som refererar till en tidigare tid.<br><b>Exempel:</b> Jag vaknade <b>tidigare</b> idag.",
-            "th": "<b>คำอธิบาย:</b> กริยาวิเศษณ์บอกเวลาหมายถึงเวลาก่อนหน้านี้หรือเช้ากว่า<br><b>ตัวอย่าง:</b> วันนี้ฉันตื่น<b>เช้ากว่าเดิม</b>",
-            "uk": "<b>Пояснення:</b> Прислівник часу, що вказує на більш ранній час.<br><b>Приклад:</b> Сьогодні я прокинувся <b>раніше</b>.",
-            "vi": "<b>Giải thích:</b> Trạng từ chỉ thời gian đề cập đến thời điểm sớm hơn.<br><b>Ví dụ:</b> Hôm nay tôi đã thức dậy <b>sớm hơn</b>."
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يشير إلى وقت سابق أو مبكر.<br><b>مثال:</b> استيقظت <b>في وقت أبكر</b> اليوم.</div>",
+            "da": "<b>Forklaring:</b> Refererer til en tidligere tid.<br><b>Eksempel:</b> Jeg vågnede <b>tidligere</b> i dag.",
+            "en": "<b>Explanation:</b> Referring to an earlier time or before.<br><b>Example:</b> I woke up <b>earlier</b> today.",
+            "tl": "<b>Paliwanag:</b> Tumutukoy sa mas maagang oras.<br><b>Halimbawa:</b> Gumising ako nang <b>mas maaga</b> ngayon.",
+            "no": "<b>Forklaring:</b> Refererer til en tidligere tid.<br><b>Eksempel:</b> Jeg våknet <b>tidligere</b> i dag.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> اشاره به زمان قبل‌تر.<br><b>مثال:</b> من امروز <b>زودتر</b> بیدار شدم.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Odnosi się do wcześniejszego momentu.<br><b>Przykład:</b> Obudziłem się dziś <b>wcześniej</b>.",
+            "ru": "<b>Объяснение:</b> Указывает на более раннее время.<br><b>Пример:</b> Сегодня я проснулся <b>раньше</b>.",
+            "es": "<b>Explicación:</b> Se refiere a un momento anterior.<br><b>Ejemplo:</b> Me desperté <b>más temprano</b> hoy.",
+            "sv": "<b>Förklaring:</b> Refererar till en tidigare tid.<br><b>Exempel:</b> Jag vaknade <b>tidigare</b> idag.",
+            "th": "<b>คำอธิบาย:</b> หมายถึงเวลาก่อนหน้านี้หรือเช้ากว่า<br><b>ตัวอย่าง:</b> วันนี้ฉันตื่น<b>เช้ากว่าเดิม</b>",
+            "uk": "<b>Пояснення:</b> Вказує на більш ранній час.<br><b>Приклад:</b> Сьогодні я прокинувся <b>раніше</b>.",
+            "vi": "<b>Giải thích:</b> Đề cập đến thời điểm sớm hơn.<br><b>Ví dụ:</b> Hôm nay tôi đã thức dậy <b>sớm hơn</b>."
         }
     },
     { 
         text: "gegnum", 
-        is_exp: "<b>Útskýring:</b> Forsetning sem merkir að fara inn um eitt og út um annað (oftast: 'í gegnum').<br><b>Samheiti:</b> um.<br><b>Dæmi:</b> Við keyrðum í <b>gegnum</b> göngin.",
+        is_exp: "<p><b>Orðflokkur:</b> Forsetning</p><p><b>Útskýring:</b> Að fara inn um eitt og út um annað. Mjög oft notað með orðinu 'í' á undan (í gegnum).</p><p><b>Samheiti:</b> um, í gegnum.</p><p><b>Dæmi:</b> Við keyrðum í <b>gegnum</b> göngin.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> حرف جر يعني الدخول من جهة والخروج من أخرى (خلال / عبر).<br><b>مثال:</b> قدنا السيارة <b>عبر</b> النفق.</div>",
-            "da": "<b>Forklaring:</b> Forholdsord, der betyder at gå ind ad det ene og ud ad det andet (gennem).<br><b>Eksempel:</b> Vi kørte <b>gennem</b> tunnelen.",
-            "en": "<b>Explanation:</b> Preposition meaning to go in one way and out the other (through).<br><b>Example:</b> We drove <b>through</b> the tunnel.",
-            "tl": "<b>Paliwanag:</b> Pang-ukol na nangangahulugang pumasok sa isang daan at lumabas sa kabila (sa pamamagitan / lagpas).<br><b>Halimbawa:</b> Nagmaneho kami <b>sa pamamagitan</b> ng tunnel.",
-            "fr": "<b>Explication:</b> Préposition signifiant entrer d'un côté et sortir de l'autre (à travers).<br><b>Exemple:</b> Nous avons conduit <b>à travers</b> le tunnel.",
-            "lv": "<b>Paskaidrojums:</b> Prievārds, kas nozīmē iet iekšā pa vienu pusi un ārā pa otru (cauri).<br><b>Piemērs:</b> Mēs braucām <b>cauri</b> tunelim.",
-            "lt": "<b>Paaiškinimas:</b> Prielinksnis, reiškiantis eiti į vieną pusę ir išeiti per kitą (per).<br><b>Pavyzdys:</b> Mes važiavome <b>per</b> tunelį.",
-            "no": "<b>Forklaring:</b> Preposisjon som betyr å gå inn den ene veien og ut den andre (gjennom).<br><b>Eksempel:</b> Vi kjørte <b>gjennom</b> tunnelen.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> حرف اضافه به معنی وارد شدن از یک طرف و خارج شدن از طرف دیگر (از میان / از طریق).<br><b>مثال:</b> ما <b>از میان</b> تونل رانندگی کردیم.</div>",
-            "pt": "<b>Explicação:</b> Preposição que significa entrar por um lado e sair pelo outro (através de).<br><b>Exemplo:</b> Nós dirigimos <b>através</b> do túnel.",
-            "pl": "<b>Wyjaśnienie:</b> Przyimek oznaczający wejście z jednej strony i wyjście z drugiej (przez).<br><b>Przykład:</b> Przejechaliśmy <b>przez</b> tunel.",
-            "ro": "<b>Explicație:</b> Prepoziție care înseamnă a intra pe o parte și a ieși pe cealaltă (prin).<br><b>Exemplu:</b> Am condus <b>prin</b> tunel.",
-            "ru": "<b>Объяснение:</b> Предлог, означающий войти с одной стороны и выйти с другой (через).<br><b>Пример:</b> Мы проехали <b>через</b> туннель.",
-            "es": "<b>Explicación:</b> Preposición que significa entrar por un lado y salir por el otro (a través de).<br><b>Ejemplo:</b> Conducimos <b>a través</b> del túnel.",
-            "sv": "<b>Förklaring:</b> Preposition som betyder att gå in genom det ena och ut genom det andra (genom).<br><b>Exempel:</b> Vi körde <b>genom</b> tunneln.",
-            "th": "<b>คำอธิบาย:</b> คำบุพบทหมายถึงการเข้าไปทางหนึ่งและออกอีกทางหนึ่ง (ผ่าน / ทะลุ)<br><b>ตัวอย่าง:</b> เราขับรถ<b>ผ่าน</b>อุโมงค์",
-            "uk": "<b>Пояснення:</b> Прийменник, що означає увійти з одного боку і вийти з іншого (через).<br><b>Приклад:</b> Ми проїхали <b>через</b> тунель.",
-            "vi": "<b>Giải thích:</b> Giới từ có nghĩa là đi vào một đường và đi ra đường khác (xuyên qua).<br><b>Ví dụ:</b> Chúng tôi lái xe <b>xuyên qua</b> đường hầm."
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> الدخول من جهة والخروج من أخرى (خلال / عبر).<br><b>مثال:</b> قدنا السيارة <b>عبر</b> النفق.</div>",
+            "da": "<b>Forklaring:</b> At gå ind ad det ene og ud ad det andet (gennem).<br><b>Eksempel:</b> Vi kørte <b>gennem</b> tunnelen.",
+            "en": "<b>Explanation:</b> To go in one way and out the other (through).<br><b>Example:</b> We drove <b>through</b> the tunnel.",
+            "tl": "<b>Paliwanag:</b> Pumasok sa isang daan at lumabas sa kabila (sa pamamagitan / lagpas).<br><b>Halimbawa:</b> Nagmaneho kami <b>sa pamamagitan</b> ng tunnel.",
+            "no": "<b>Forklaring:</b> Å gå inn den ene veien og ut den andre (gjennom).<br><b>Eksempel:</b> Vi kjørte <b>gjennom</b> tunnelen.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> وارد شدن از یک طرف و خارج شدن از طرف دیگر (از میان / از طریق).<br><b>مثال:</b> ما <b>از میان</b> تونل رانندگی کردیم.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Wejście z jednej strony i wyjście z drugiej (przez).<br><b>Przykład:</b> Przejechaliśmy <b>przez</b> tunel.",
+            "ru": "<b>Объяснение:</b> Войти с одной стороны и выйти с другой (через).<br><b>Пример:</b> Мы проехали <b>через</b> туннель.",
+            "es": "<b>Explicación:</b> Entrar por un lado y salir por el otro (a través de).<br><b>Ejemplo:</b> Conducimos <b>a través</b> del túnel.",
+            "sv": "<b>Förklaring:</b> Att gå in genom det ena och ut genom det andra (genom).<br><b>Exempel:</b> Vi körde <b>genom</b> tunneln.",
+            "th": "<b>คำอธิบาย:</b> การเข้าไปทางหนึ่งและออกอีกทางหนึ่ง (ผ่าน / ทะลุ)<br><b>ตัวอย่าง:</b> เราขับรถ<b>ผ่าน</b>อุโมงค์",
+            "uk": "<b>Пояснення:</b> Увійти з одного боку і вийти з іншого (через).<br><b>Приклад:</b> Ми проїхали <b>через</b> тунель.",
+            "vi": "<b>Giải thích:</b> Đi vào một đường và đi ra đường khác (xuyên qua).<br><b>Ví dụ:</b> Chúng tôi lái xe <b>xuyên qua</b> đường hầm."
         }
     },
     { 
         text: "of", 
-        is_exp: "<b>Útskýring:</b> Atviksorð sem sýnir að eitthvað sé meira en passlegt eða meira en gott er.<br><b>Samheiti:</b> umfram, óhóflega.<br><b>Dæmi:</b> Súpan er <b>of</b> heit.",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Sýnir að eitthvað sé meira en passlegt eða meira en gott er (að fara yfir strikið).</p><p><b>Samheiti:</b> umfram, óhóflega.</p><p><b>Dæmi:</b> Súpan er <b>of</b> heit.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> ظرف يوضح أن شيئاً ما أكثر من اللازم (جداً / أكثر من اللازم).<br><b>مثال:</b> الحساء حار <b>جداً</b>.</div>",
-            "da": "<b>Forklaring:</b> Biord,
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يوضح أن شيئاً ما أكثر من اللازم.<br><b>مثال:</b> الحساء حار <b>جداً</b>.</div>",
+            "da": "<b>Forklaring:</b> Viser, at noget er mere end passende (for).<br><b>Eksempel:</b> Suppen er <b>for</b> varm.",
+            "en": "<b>Explanation:</b> Showing that something is more than appropriate (too/excessively).<br><b>Example:</b> The soup is <b>too</b> hot.",
+            "tl": "<b>Paliwanag:</b> Nagpapakita na ang isang bagay ay labis o sobra.<br><b>Halimbawa:</b> <b>Sobra</b>ng init ng sabaw.",
+            "no": "<b>Forklaring:</b> Viser at noe er mer enn passende (for).<br><b>Eksempel:</b> Suppen er <b>for</b> varm.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> نشان می‌دهد چیزی بیش از حد است.<br><b>مثال:</b> سوپ <b>بیش از حد</b> داغ است.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Pokazuje, że czegoś jest więcej niż powinno (zbyt/za).<br><b>Przykład:</b> Zupa jest <b>zbyt</b> gorąca.",
+            "ru": "<b>Объяснение:</b> Показывает, что чего-то больше, чем нужно (слишком).<br><b>Пример:</b> Суп <b>слишком</b> горячий.",
+            "es": "<b>Explicación:</b> Muestra que algo es más que apropiado (demasiado).<br><b>Ejemplo:</b> La sopa está <b>demasiado</b> caliente.",
+            "sv": "<b>Förklaring:</b> Visar att något är mer än lämpligt (för).<br><b>Exempel:</b> Soppan är <b>för</b> varm.",
+            "th": "<b>คำอธิบาย:</b> แสดงว่าสิ่งใดสิ่งหนึ่งมากเกินพอดี (เกินไป)<br><b>ตัวอย่าง:</b> ซุปร้อน<b>เกินไป</b>",
+            "uk": "<b>Пояснення:</b> Показує, що чогось більше, ніж потрібно (занадто).<br><b>Приклад:</b> Суп <b>занадто</b> гарячий.",
+            "vi": "<b>Giải thích:</b> Cho thấy một điều gì đó vượt mức thích hợp (quá).<br><b>Ví dụ:</b> Súp <b>quá</b> nóng."
+        }
+    },
+    { 
+        text: "alls", 
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Merkir aðallega í heildina. Mjög oft notað með neitun til að styrkja hana (alls ekki = yfirleitt ekki).</p><p><b>Samheiti:</b> yfirleitt, algerlega.</p><p><b>Dæmi:</b> Þetta var <b>alls</b> ekki slæmt.</p>",
+        translations: {
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يعني بالإجمال أو على الإطلاق (يستخدم غالباً مع النفي).<br><b>مثال:</b> هذا لم يكن سيئاً <b>على الإطلاق</b>.</div>",
+            "da": "<b>Forklaring:</b> Betyder i det hele taget eller overhovedet (ofte brugt med benægtelse).<br><b>Eksempel:</b> Det var <b>slet</b> ikke dårligt.",
+            "en": "<b>Explanation:</b> Meaning altogether or at all (often used with negation: 'not at all').<br><b>Example:</b> This was not bad <b>at all</b>.",
+            "tl": "<b>Paliwanag:</b> Nangangahulugang sa kabuuan o kahit man lang (madalas ginagamit sa pagtanggi).<br><b>Halimbawa:</b> Hindi ito masama <b>kahit man lang</b>.",
+            "no": "<b>Forklaring:</b> Betyr i det hele tatt eller overhodet (ofte brukt med nektelse).<br><b>Eksempel:</b> Dette var <b>slett</b> ikke verst.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به معنی اصلاً یا در کل (اغلب با منفی استفاده می‌شود).<br><b>مثال:</b> این <b>اصلاً</b> بد نبود.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Oznaczający w ogóle lub całkowicie (często z przeczeniem: 'wcale nie').<br><b>Przykład:</b> To <b>wcale</b> nie było złe.",
+            "ru": "<b>Объяснение:</b> Означает в целом или вообще (часто с отрицанием: 'вовсе не').<br><b>Пример:</b> Это было <b>вовсе</b> не плохо.",
+            "es": "<b>Explicación:</b> Significa en absoluto o del todo (a menudo se usa con negación).<br><b>Ejemplo:</b> Esto no estuvo mal <b>en absoluto</b>.",
+            "sv": "<b>Förklaring:</b> Betyder i allmänhet eller överhuvudtaget (ofta med negation).<br><b>Exempel:</b> Det var <b>alls</b> inte dåligt.",
+            "th": "<b>คำอธิบาย:</b> หมายถึงเลย หรือทั้งหมด (มักใช้กับการปฏิเสธ: ไม่...เลย)<br><b>ตัวอย่าง:</b> มันไม่ได้แย่<b>เลย</b>",
+            "uk": "<b>Пояснення:</b> Означає взагалі або зовсім (часто з запереченням: 'зовсім не').<br><b>Приклад:</b> Це було <b>зовсім</b> не погано.",
+            "vi": "<b>Giải thích:</b> Có nghĩa là hoàn toàn hoặc chút nào (thường dùng với phủ định: 'không chút nào').<br><b>Ví dụ:</b> Điều này không tệ <b>chút nào</b>."
+        }
+    },
+    { 
+        text: "mörg", 
+        is_exp: "<p><b>Orðflokkur:</b> Lýsingarorð</p><p><b>Útskýring:</b> Merkir að eitthvað sé í miklum fjölda. Er í fleirtölu (hvorugkyn, t.d. mörg börn, mörg tré, eða kvenkyn).</p><p><b>Samheiti:</b> fjölmörg, mikill fjöldi.</p><p><b>Dæmi:</b> Það eru <b>mörg</b> tré í garðinum.</p>",
+        translations: {
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يعني عدداً كبيراً من شيء ما.<br><b>مثال:</b> يوجد <b>العديد</b> من الأشجار في الحديقة.</div>",
+            "da": "<b>Forklaring:</b> Betyder et stort antal af noget.<br><b>Eksempel:</b> Der er <b>mange</b> træer i parken.",
+            "en": "<b>Explanation:</b> Meaning a large number of something (many).<br><b>Example:</b> There are <b>many</b> trees in the park.",
+            "tl": "<b>Paliwanag:</b> Nangangahulugang malaking bilang ng isang bagay.<br><b>Halimbawa:</b> <b>Maraming</b> puno sa parke.",
+            "no": "<b>Forklaring:</b> Betyr et stort antall av noe.<br><b>Eksempel:</b> Det er <b>mange</b> trær i parken.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به معنی تعداد زیادی از چیزی.<br><b>مثال:</b> درختان <b>بسیاری</b> در پارک وجود دارد.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Oznaczający dużą ilość czegoś (wiele).<br><b>Przykład:</b> W parku jest <b>wiele</b> drzew.",
+            "ru": "<b>Объяснение:</b> Означает большое количество чего-либо.<br><b>Пример:</b> В парке <b>много</b> деревьев.",
+            "es": "<b>Explicación:</b> Significa un gran número de algo.<br><b>Ejemplo:</b> Hay <b>muchos</b> árboles en el parque.",
+            "sv": "<b>Förklaring:</b> Betyder ett stort antal av något.<br><b>Exempel:</b> Det finns <b>många</b> träd i parken.",
+            "th": "<b>คำอธิบาย:</b> หมายถึงจำนวนมากมาย<br><b>ตัวอย่าง:</b> มีต้นไม้<b>มากมาย</b>ในสวนสาธารณะ",
+            "uk": "<b>Пояснення:</b> Означає велику кількість чогось.<br><b>Приклад:</b> У парку <b>багато</b> дерев.",
+            "vi": "<b>Giải thích:</b> Có nghĩa là một số lượng lớn thứ gì đó.<br><b>Ví dụ:</b> Có <b>rất nhiều</b> cây trong công viên."
+        }
+    },
+    { 
+        text: "fyrstu", 
+        is_exp: "<p><b>Orðflokkur:</b> Töluorð / Raðtala</p><p><b>Útskýring:</b> Á við um það sem er númer eitt í röðinni eða er á undan öllu öðru. Oft notað í fleirtölu um marga hluti sem koma fyrst.</p><p><b>Samheiti:</b> fremstu, upphaflegu.</p><p><b>Dæmi:</b> Þetta eru <b>fyrstu</b> dagarnir í skólanum.</p>",
+        translations: {
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يشير إلى ما يسبق كل شيء آخر (الأولى).<br><b>مثال:</b> هذه هي الأيام <b>الأولى</b> في المدرسة.</div>",
+            "da": "<b>Forklaring:</b> Gælder for det, der kommer før alt andet (første).<br><b>Eksempel:</b> Dette er de <b>første</b> dage i skolen.",
+            "en": "<b>Explanation:</b> Referring to what comes before everything else (first).<br><b>Example:</b> These are the <b>first</b> days in school.",
+            "tl": "<b>Paliwanag:</b> Tumutukoy sa nauuna sa lahat (una).<br><b>Halimbawa:</b> Ito ang mga <b>unang</b> araw sa paaralan.",
+            "no": "<b>Forklaring:</b> Gjelder det som kommer før alt annet (første).<br><b>Eksempel:</b> Dette er de <b>første</b> dagene på skolen.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به آنچه قبل از همه چیز می‌آید اشاره دارد (اولین).<br><b>مثال:</b> اینها <b>اولین</b> روزهای مدرسه هستند.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Odnoszący się do tego, co jest przed wszystkim innym (pierwsze).<br><b>Przykład:</b> To są <b>pierwsze</b> dni w szkole.",
+            "ru": "<b>Объяснение:</b> Относится к тому, что предшествует всему остальному (первые).<br><b>Пример:</b> Это <b>первые</b> дни в школе.",
+            "es": "<b>Explicación:</b> Se refiere a lo que va antes que todo lo demás (primeros).<br><b>Ejemplo:</b> Estos son los <b>primeros</b> días en la escuela.",
+            "sv": "<b>Förklaring:</b> Gäller för det som kommer före allt annat (första).<br><b>Exempel:</b> Detta är de <b>första</b> dagarna i skolan.",
+            "th": "<b>คำอธิบาย:</b> หมายถึงสิ่งที่มาก่อนสิ่งอื่นทั้งหมด (แรก)<br><b>ตัวอย่าง:</b> นี่คือวัน<b>แรก ๆ</b> ในโรงเรียน",
+            "uk": "<b>Пояснення:</b> Стосується того, що йде перед усім іншим (перші).<br><b>Приклад:</b> Це <b>перші</b> дні в школі.",
+            "vi": "<b>Giải thích:</b> Chỉ những gì xuất hiện trước mọi thứ khác (đầu tiên).<br><b>Ví dụ:</b> Đây là những ngày <b>đầu tiên</b> ở trường."
+        }
+    },
+    { 
+        text: "öld", 
+        is_exp: "<p><b>Orðflokkur:</b> Nafnorð (kvenkyn)</p><p><b>Útskýring:</b> Tímabil sem spannar nákvæmlega eitt hundrað ár í senn (t.d. 1900 - 1999).</p><p><b>Samheiti:</b> hundrað ár.</p><p><b>Dæmi:</b> Við lifum á 21. <b>öld</b>.</p>",
+        translations: {
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> فترة زمنية تمتد لمئة عام (قرن).<br><b>مثال:</b> نحن نعيش في الـ<b>قرن</b> الحادي والعشرين.</div>",
+            "da": "<b>Forklaring:</b> En periode på hundrede år (århundrede).<br><b>Eksempel:</b> Vi lever i det 21. <b>århundrede</b>.",
+            "en": "<b>Explanation:</b> A period spanning one hundred years (century).<br><b>Example:</b> We live in the 21st <b>century</b>.",
+            "tl": "<b>Paliwanag:</b> Panahon na sumasaklaw sa isang daang taon (siglo).<br><b>Halimbawa:</b> Nabubuhay tayo sa ika-21 <b>siglo</b>.",
+            "no": "<b>Forklaring:</b> En periode på hundre år (århundre).<br><b>Eksempel:</b> Vi lever i det 21. <b>århundret</b>.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> دوره صد ساله (قرن).<br><b>مثال:</b> ما در <b>قرن</b> بیست و یکم زندگی می‌کنیم.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Okres stu lat (wiek).<br><b>Przykład:</b> Żyjemy w XXI <b>wieku</b>.",
+            "ru": "<b>Объяснение:</b> Период в сто лет (век).<br><b>Пример:</b> Мы живем в 21 <b>веке</b>.",
+            "es": "<b>Explicación:</b> Un período que abarca cien años (siglo).<br><b>Ejemplo:</b> Vivimos en el <b>siglo</b> 21.",
+            "sv": "<b>Förklaring:</b> En period på hundra år (århundrade).<br><b>Exempel:</b> Vi lever på 2000-talet (21:a <b>århundradet</b>).",
+            "th": "<b>คำอธิบาย:</b> ช่วงเวลาหนึ่งร้อยปี (ศตวรรษ)<br><b>ตัวอย่าง:</b> เราอยู่ใน<b>ศตวรรษ</b>ที่ 21",
+            "uk": "<b>Пояснення:</b> Період у сто років (століття).<br><b>Приклад:</b> Ми живемо у 21 <b>столітті</b>.",
+            "vi": "<b>Giải thích:</b> Khoảng thời gian một trăm năm (thế kỷ).<br><b>Ví dụ:</b> Chúng ta đang sống ở <b>thế kỷ</b> 21."
+        }
+    },
+    { 
+        text: "sitt", 
+        is_exp: "<p><b>Orðflokkur:</b> Fornafn (eignarfornafn)</p><p><b>Útskýring:</b> Vísar til þess sem einhver á eða tilheyrir honum. Er í hvorugkyni (t.d. sitt barn, sitt hús, sitt dót).</p><p><b>Samheiti:</b> eigið.</p><p><b>Dæmi:</b> Barnið lék sér með dótið <b>sitt</b>.</p>",
+        translations: {
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يشير إلى ما يمتلكه شخص ما.<br><b>مثال:</b> لعب الطفل بلعبتـ<b>ـه</b>.</div>",
+            "da": "<b>Forklaring:</b> Refererer til det, nogen ejer (sit).<br><b>Eksempel:</b> Barnet legede med <b>sit</b> legetøj.",
+            "en": "<b>Explanation:</b> Referring to what someone owns (its/their/his/hers).<br><b>Example:</b> The child played with <b>its</b> (their) toy.",
+            "tl": "<b>Paliwanag:</b> Tumutukoy sa pag-aari ng isang tao.<br><b>Halimbawa:</b> Naglaro ang bata sa <b>kanyang</b> laruan.",
+            "no": "<b>Forklaring:</b> Refererer til det noen eier (sitt).<br><b>Eksempel:</b> Barnet lekte med leketøyet <b>sitt</b>.",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به آنچه کسی مالک آن است اشاره دارد.<br><b>مثال:</b> کودک با اسباب‌بازی <b>خودش</b> بازی کرد.</div>",
+            "pl": "<b>Wyjaśnienie:</b> Odnoszący się do własności (swój).<br><b>Przykład:</b> Dziecko bawiło się <b>swoją</b> zabawką.",
+            "ru": "<b>Объяснение:</b> Указывает на принадлежность (свой/своё).<br><b>Пример:</b> Ребенок играл со <b>своей</b> игрушкой.",
+            "es": "<b>Explicación:</b> Se refiere a lo que alguien posee (su).<br><b>Ejemplo:</b> El niño jugó con <b>su</b> juguete.",
+            "sv": "<b>Förklaring:</b> Refererar till vad någon äger (sitt).<br><b>Exempel:</b> Barnet lekte med <b>sin/sitt</b> leksak.",
+            "th": "<b>คำอธิบาย:</b> แสดงความเป็นเจ้าของ<br><b>ตัวอย่าง:</b> เด็กเล่นกับของเล่นของ<b>เขา</b>",
+            "uk": "<b>Пояснення:</b> Вказує на приналежність (свій).<br><b>Приклад:</b> Дитина гралася <b>своєю</b> іграшкою.",
+            "vi": "<b>Giải thích:</b> Chỉ những gì một người sở hữu (của mình).<br><b>Ví dụ:</b> Đứa trẻ chơi với đồ chơi <b>của mình</b>."
+        }
+    },
+    { 
+        text: "hvert", 
+        is_exp: "<p><b>Orðflokkur:</b> Fornafn / Spurnaratviksorð</p><p><b>Útskýring:</b> Getur verið óákveðið fornafn (sérhvert) eða spurnaratviksorð sem spyr um stefnu eða stað, eins og í dæminu hér.</p><p><b>Samheiti:</b> hvaða leið, á hvaða stað.</p><p><b>Dæmi:</b> <b>Hvert</b> ertu að fara?</p>",
+        translations: {
+            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> أداة تسأل عن الاتجاه (إلى أين).<br><b>مثال:</b> <b>إلى أين</b> أنت ذاهب؟</div>",
+            "da": "<b>Forklaring:</b> Spørgeord om retning (hvorhen).<br><b>Eksempel:</b> <b>Hvor</b> skal du hen?",
+            "en": "<b>Explanation:</b> Question word asking about direction or destination (where to).<br><b>Example:</b> <b>Where</b> are you going?",
+            "tl": "<b>Paliwanag:</b> Nagtatanong tungkol sa direksyon (saan papunta).<br><b>Halimbawa:</b> <b>Saan</b> ka pupunta?",
+            "no": "<b>Forklaring:</b> Spørreord om retning (hvor).<br><b>Eksempel:</b> <b>Hvor</b> skal du?",
+            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> در مورد جهت می‌پرسد (کجا / به کجا).<br><b>مثال:</b> <b>کجا</b> داری می‌روی؟</div>",
+            "pl": "<b>Wyjaśnienie:</b> Pytający o kierunek (dokąd).<br><b>Przykład:</b> <b>Dokąd</b> idziesz?",
+            "ru": "<b>Объяснение:</b> Спрашивает о направлении (куда).<br><b>Пример:</b> <b>Куда</b> ты идешь?",
+            "es": "<b>Explicación:</b> Pregunta sobre la dirección (a dónde).<br><b>Ejemplo:</b> ¿<b>A dónde</b> vas?",
+            "sv": "<b>Förklaring:</b> Frågeord om riktning (vart).<br><b>Exempel:</b> <b>Vart</b> är du på väg?",
+            "th": "<b>คำอธิบาย:</b> เพื่อถามเกี่ยวกับทิศทาง (ที่ไหน / ไปไหน)<br><b>ตัวอย่าง:</b> คุณกำลังจะไป<b>ไหน</b>?",
+            "uk": "<b>Пояснення:</b> Запитує про напрямок (куди).<br><b>Приклад:</b> <b>Куди</b> ти йдеш?",
+            "vi": "<b>Giải thích:</b> Hỏi về hướng đi (đi đâu).<br><b>Ví dụ:</b> Bạn đang đi <b>đâu</b> vậy?"
+        }
+    }
+];
+
+let userScores = new Array(exerciseData.length).fill(null);
+let userSpoken = new Array(exerciseData.length).fill("");
+
+let currentIndex = 0;
+let recognition;
+let isRecording = false;
+let autoAdvanceTimer = null;
+let hasDownloadedCert = false;
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (SpeechRecognition) {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'is-IS';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    
+    recognition.onend = () => {
+        isRecording = false;
+        const btn = document.getElementById('record-btn');
+        if (btn) {
+            btn.innerText = "🎤 Tala";
+            btn.classList.remove('recording');
+        }
+        const resDiv = document.getElementById('result');
+        if (resDiv && resDiv.innerText === "Hlusta...") {
+            resDiv.innerText = "";
+        }
+    };
+} else {
+    alert("Þessi vafri styður ekki talgreiningu. Notaðu Chrome eða Edge á tölvu.");
+}
+
+window.onload = () => { 
+    updateUI();
+};
+
+function updateProgress() {
+    let correctCount = 0;
+    for (let i = 0; i < userScores.length; i++) {
+        if (userScores[i] === 100) correctCount++;
+    }
+    const percent = (correctCount / exerciseData.length) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    if(progressBar) progressBar.style.width = percent + '%';
+    return correctCount;
+}
+
+function findNextUnfinished() {
+    for (let i = 0; i < userScores.length; i++) {
+        if (userScores[i] !== 100) {
+            currentIndex = i;
+            break;
+        }
+    }
+    document.getElementById('completion-view').style.display = 'none';
+    document.getElementById('exercise-view').style.display = 'block';
+    updateUI();
+}
+
+function updateUI() {
+    clearTimeout(autoAdvanceTimer); 
+    const correctCount = updateProgress();
+
+    if (currentIndex >= exerciseData.length) {
+        document.getElementById('exercise-view').style.display = 'none';
+        const completionView = document.getElementById('completion-view');
+        completionView.style.display = 'block';
+
+        if (correctCount === exerciseData.length) {
+            completionView.innerHTML = `
+                <div class="progress-container"><div id="progress-bar" style="width: 100%;"></div></div>
+                <h1 style="color: #34a853; font-size: 2.5em;">Frábært! Þú náðir 100% árangri! 🎉</h1>
+                <p style="font-size: 1.2em; color: #555;">Skrifaðu nafnið þitt hér að neðan til að sækja viðurkenningarskjalið þitt.</p>
+                <input type="text" id="studentName" placeholder="Skrifaðu nafnið þitt hér" autocomplete="off" ${hasDownloadedCert ? 'disabled' : ''}><br>
+                <button id="cert-btn" class="btn" style="background-color: ${hasDownloadedCert ? '#5f6368' : '#1a73e8'}; font-size: 1.5em; padding: 15px 30px; margin-top: 10px; cursor: ${hasDownloadedCert ? 'not-allowed' : 'pointer'}; opacity: ${hasDownloadedCert ? '0.7' : '1'};" onclick="downloadCert()" ${hasDownloadedCert ? 'disabled' : ''}>
+                    ${hasDownloadedCert ? '✅ Skjal sótt' : '🏆 Sækja viðurkenningarskjal'}
+                </button>
+                <br><br>
+                <button class="btn" style="background-color: #5f6368;" onclick="location.reload()">🔄 Byrja nýja umferð</button>
+                <div class="feedback-note">Vinsamlegast sendið ábendingar á <a href="mailto:dgu@fb.is">dgu@fb.is</a></div>
+            `;
+        } else {
+            completionView.innerHTML = `
+                <div class="progress-container"><div id="progress-bar" style="width: ${(correctCount/exerciseData.length)*100}%;"></div></div>
+                <h1 style="color: #fbbc05; font-size: 2em;">Þú ert næstum því búin(n)!</h1>
+                <p style="font-size: 1.2em;">Þú hefur klárað ${correctCount} af ${exerciseData.length} orðum með 100% árangri.</p>
+                <p style="font-size: 1.1em; color: #555;">Farðu til baka og reyndu aftur við þau orð sem vantaði upp á til að fá skjalið.</p>
+                <button class="btn" style="background-color: #fbbc05; color: #000;" onclick="findNextUnfinished()">➡️ Fara á orð sem vantar</button>
+                <div class="feedback-note">Vinsamlegast sendið ábendingar á <a href="mailto:dgu@fb.is">dgu@fb.is</a></div>
+            `;
+        }
+        return;
+    }
+
+    const curr = exerciseData[currentIndex];
+    const langSelect = document.getElementById('languageSelect');
+    const selectedLang = langSelect ? langSelect.value : 'none';
+
+    document.getElementById('target').innerHTML = curr.text;
+    document.getElementById('is-explanation').innerHTML = curr.is_exp;
+    document.getElementById('counter').innerText = `Orð ${currentIndex + 1} af ${exerciseData.length}`;
+    
+    const mediaBox = document.getElementById('media-box');
+    if (selectedLang === 'none' || selectedLang === "") {
+        mediaBox.innerHTML = "<i style='color: #666;'>Vinsamlegast veldu tungumál af listanum að ofan til að sjá þýðingu.</i>";
+    } else {
+        mediaBox.innerHTML = curr.translations[selectedLang] || "Þýðing ekki til / Translation missing";
+    }
+
+    const savedScore = userScores[currentIndex];
+    const savedText = userSpoken[currentIndex];
+
+    if (savedScore !== null) {
+        document.getElementById('result').innerText = `Einkunn: ${savedScore}%`;
+        document.getElementById('spoken').innerText = `Þú sagðir: "${savedText}"`;
+    } else {
+        document.getElementById('result').innerText = "";
+        document.getElementById('spoken').innerText = "";
+    }
+}
+
+function nextExercise() {
+    currentIndex++;
+    updateUI();
+}
+
+function prevExercise() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateUI();
+    }
+}
+
+function toggleRecord() {
+    if (!recognition) return;
+
+    const btn = document.getElementById('record-btn');
+    if (isRecording) {
+        recognition.stop();
+    } else {
+        try {
+            recognition.start();
+            isRecording = true;
+            btn.innerText = "🛑 Hlusta...";
+            btn.classList.add('recording');
+            document.getElementById('result').innerText = "Hlusta...";
+            document.getElementById('spoken').innerText = "";
+        } catch(e) {
+            console.log("Villa í upptöku: " + e);
+        }
+    }
+}
+
+if (recognition) {
+    recognition.onresult = (event) => {
+        let spoken = event.results[0][0].transcript.trim().toLowerCase(); 
+        document.getElementById('spoken').innerText = `Þú sagðir: "${spoken}"`;
+        
+        const targetWord = exerciseData[currentIndex].text.toLowerCase();
+        let score = 0;
+        if (spoken.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"").trim() === targetWord) {
+            score = 100;
+        }
+        
+        document.getElementById('result').innerText = `Einkunn: ${score}%`;
+        userScores[currentIndex] = score;
+        userSpoken[currentIndex] = spoken;
+        
+        updateProgress();
+
+        if (score === 100) {
+            autoAdvanceTimer = setTimeout(() => {
+                nextExercise();
+            }, 1000); 
+        }
+    };
+}
+
+function downloadCert() {
+    if (hasDownloadedCert) return; 
+    const studentNameInput = document.getElementById('studentName');
+    const studentName = studentNameInput ? studentNameInput.value.trim() : "";
+    
+    if (studentName === "") {
+        alert("Vinsamlegast skrifaðu nafnið þitt fyrst!");
+        return;
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 900;
+    canvas.height = 600;
+    const ctx = canvas.getContext('2d');
+    
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#1a73e8';
+    ctx.lineWidth = 15;
+    ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+    ctx.strokeStyle = '#fbbc05';
+    ctx.lineWidth = 5;
+    ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+    
+    ctx.fillStyle = '#1a73e8';
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 50px Arial';
+    ctx.fillText('Viðurkenning', canvas.width / 2, 140);
+    
+    ctx.fillStyle = '#333333';
+    ctx.font = '24px Arial';
+    ctx.fillText('Þetta skjal staðfestir að', canvas.width / 2, 220);
+    
+    ctx.fillStyle = '#000000';
+    ctx.font = 'bold 45px Arial';
+    ctx.fillText(studentName, canvas.width / 2, 290);
+    
+    ctx.fillStyle = '#333333';
+    ctx.font = '24px Arial';
+    ctx.fillText('hefur lokið æfingunni með glæsibrag:', canvas.width / 2, 360);
+
+    ctx.fillStyle = '#1a73e8';
+    ctx.font = 'bold 26px Arial';
+    ctx.fillText('Markorð: 201 - 210 algengustu orðin.', canvas.width / 2, 420);
+    
+    ctx.fillStyle = '#34a853';
+    ctx.font = 'italic 28px Arial';
+    ctx.fillText('Frábær árangur! Haltu áfram að æfa þig.', canvas.width / 2, 490);
+
+    const dateString = new Date().toLocaleDateString('is-IS');
+    ctx.fillStyle = '#666666';
+    ctx.font = '18px Arial';
+    ctx.fillText('Dagsetning: ' + dateString, canvas.width / 2, 540);
+    
+    const link = document.createElement('a');
+    link.download = `Vidurkenning_${studentName.replace(/\s+/g, '_')}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    
+    hasDownloadedCert = true;
+    const btn = document.getElementById('cert-btn');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerText = "✅ Skjal sótt";
+        btn.style.backgroundColor = "#5f6368";
+        btn.style.cursor = "not-allowed";
+        btn.style.opacity = "0.7";
+    }
+    if (studentNameInput) studentNameInput.disabled = true;
+}
+</script>
+
+</body>
+</html>

@@ -72,18 +72,18 @@
             font-weight: bold;
         }
         #is-explanation {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #333;
             background-color: #e8f0fe;
             padding: 15px 25px;
             border-radius: 10px;
             display: inline-block;
             margin-bottom: 20px;
-            max-width: 80%;
+            max-width: 85%;
             line-height: 1.6;
             text-align: left;
         }
-        #is-explanation p { margin: 5px 0; }
+        #is-explanation p { margin: 6px 0; }
         .btn { 
             padding: 12px 25px; 
             font-size: 1.2em; 
@@ -115,8 +115,9 @@
             border-left: 6px solid #1a73e8; 
             margin-top: 15px;
             display: inline-block;
-            min-width: 70%;
+            min-width: 85%;
         }
+        #media-box p { margin: 6px 0; }
         #spoken { margin-top: 15px; font-size: 1.4em; font-style: italic; color: #555; }
         #result { font-weight: bold; font-size: 1.8em; margin-top: 5px; color: #1a73e8; }
         .nav-btns { margin-top: 20px; }
@@ -192,192 +193,192 @@
 const exerciseData = [
     { 
         text: "áfram", 
-        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Að halda leiðinni lengra eða halda áfram að gera eitthvað án þess að stoppa eða gefast upp.</p><p><b>Samheiti:</b> áleiðis, lengur.</p><p><b>Dæmi:</b> Við höldum <b>áfram</b> að læra.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring 1:</b> Að halda áfram að gera eitthvað án þess að stoppa.</p><p><b>Dæmi 1:</b> Við höldum <b>áfram</b> að læra.</p><p><b>Útskýring 2:</b> Að fara áleiðis eða fram á veginn.</p><p><b>Dæmi 2:</b> Gakktu beint <b>áfram</b>.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> الاستمرار أو المضي قدماً.<br><b>مثال:</b> نحن <b>نواصل</b> التعلم.</div>",
-            "da": "<b>Forklaring:</b> At fortsætte eller gå fremad.<br><b>Eksempel:</b> Vi fortsætter <b>videre</b> med at lære.",
-            "en": "<b>Explanation:</b> To continue or move forward.<br><b>Example:</b> We <b>continue</b> to study.",
-            "tl": "<b>Paliwanag:</b> Magpatuloy o sumulong.<br><b>Halimbawa:</b> <b>Patuloy</b> tayong nag-aaral.",
-            "no": "<b>Forklaring:</b> Å fortsette eller gå fremover.<br><b>Eksempel:</b> Vi fortsetter <b>videre</b> å lære.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> ادامه دادن یا به جلو حرکت کردن.<br><b>مثال:</b> ما به یادگیری <b>ادامه می‌دهیم</b>.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Kontynuować lub posuwać się naprzód.<br><b>Przykład:</b> <b>Kontynuujemy</b> naukę.",
-            "ru": "<b>Объяснение:</b> Продолжать или двигаться вперед.<br><b>Пример:</b> Мы <b>продолжаем</b> учиться.",
-            "es": "<b>Explicación:</b> Continuar o seguir adelante.<br><b>Ejemplo:</b> <b>Continuamos</b> estudiando.",
-            "sv": "<b>Förklaring:</b> Att fortsätta eller gå framåt.<br><b>Exempel:</b> Vi fortsätter <b>vidare</b> att studera.",
-            "th": "<b>คำอธิบาย:</b> ดำเนินการต่อหรือก้าวไปข้างหน้า<br><b>ตัวอย่าง:</b> เราเรียนกัน<b>ต่อไป</b>",
-            "uk": "<b>Пояснення:</b> Продовжувати або рухатися вперед.<br><b>Приклад:</b> Ми <b>продовжуємо</b> вчитися.",
-            "vi": "<b>Giải thích:</b> Tiếp tục hoặc tiến về phía trước.<br><b>Ví dụ:</b> Chúng ta <b>tiếp tục</b> học."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> ظرف</p><p><b>الشرح 1:</b> الاستمرار في فعل شيء ما دون توقف.</p><p><b>المثال 1:</b> نحن <b>نواصل</b> التعلم.</p><p><b>الشرح 2:</b> المضي قدماً أو إلى الأمام.</p><p><b>المثال 2:</b> امشِ <b>إلى الأمام</b> مباشرة.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Biord (Adverbium)</p><p><b>Forklaring 1:</b> At fortsætte med at gøre noget uden at stoppe.</p><p><b>Eksempel 1:</b> Vi fortsætter <b>videre</b> med at lære.</p><p><b>Forklaring 2:</b> At bevæge sig fremad.</p><p><b>Eksempel 2:</b> Gå lige <b>fremad</b>.</p>",
+            "en": "<p><b>Word class:</b> Adverb</p><p><b>Explanation 1:</b> To continue doing something without stopping.</p><p><b>Example 1:</b> We <b>continue</b> to study.</p><p><b>Explanation 2:</b> Moving forward or ahead.</p><p><b>Example 2:</b> Walk straight <b>ahead</b>.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pang-abay</p><p><b>Paliwanag 1:</b> Ipagpatuloy ang paggawa ng isang bagay.</p><p><b>Halimbawa 1:</b> <b>Patuloy</b> tayong nag-aaral.</p><p><b>Paliwanag 2:</b> Pag-usad o paglipat sa unahan.</p><p><b>Halimbawa 2:</b> Maglakad nang diretso sa <b>unahan</b>.</p>",
+            "no": "<p><b>Ordklasse:</b> Adverb</p><p><b>Forklaring 1:</b> Å fortsette å gjøre noe uten å stoppe.</p><p><b>Eksempel 1:</b> Vi fortsetter <b>videre</b> å lære.</p><p><b>Forklaring 2:</b> Å bevege seg fremover.</p><p><b>Eksempel 2:</b> Gå rett <b>frem</b>.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> قید</p><p><b>توضیح 1:</b> ادامه دادن به انجام کاری بدون توقف.</p><p><b>مثال 1:</b> ما به یادگیری <b>ادامه می‌دهیم</b>.</p><p><b>توضیح 2:</b> به سمت جلو حرکت کردن.</p><p><b>مثال 2:</b> مستقیم <b>به جلو</b> برو.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Przysłówek</p><p><b>Wyjaśnienie 1:</b> Kontynuowanie robienia czegoś bez zatrzymywania się.</p><p><b>Przykład 1:</b> <b>Kontynuujemy</b> naukę.</p><p><b>Wyjaśnienie 2:</b> Poruszanie się naprzód.</p><p><b>Przykład 2:</b> Idź prosto <b>przed siebie</b>.</p>",
+            "ru": "<p><b>Часть речи:</b> Наречие</p><p><b>Объяснение 1:</b> Продолжать что-то делать без остановки.</p><p><b>Пример 1:</b> Мы <b>продолжаем</b> учиться.</p><p><b>Объяснение 2:</b> Двигаться вперед.</p><p><b>Пример 2:</b> Идите прямо <b>вперед</b>.</p>",
+            "es": "<p><b>Clase de palabra:</b> Adverbio</p><p><b>Explicación 1:</b> Continuar haciendo algo sin parar.</p><p><b>Ejemplo 1:</b> <b>Continuamos</b> estudiando.</p><p><b>Explicación 2:</b> Moverse hacia adelante.</p><p><b>Ejemplo 2:</b> Camina todo <b>recto</b>.</p>",
+            "sv": "<p><b>Ordklass:</b> Adverb</p><p><b>Förklaring 1:</b> Att fortsätta göra något utan att stanna.</p><p><b>Exempel 1:</b> Vi fortsätter <b>videre</b> att studera.</p><p><b>Förklaring 2:</b> Att röra sig framåt.</p><p><b>Exempel 2:</b> Gå rakt <b>fram</b>.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> กริยาวิเศษณ์</p><p><b>คำอธิบาย 1:</b> การทำบางสิ่งต่อไปโดยไม่หยุด</p><p><b>ตัวอย่าง 1:</b> เราเรียนกัน<b>ต่อไป</b></p><p><b>คำอธิบาย 2:</b> การก้าวไปข้างหน้า</p><p><b>ตัวอย่าง 2:</b> เดินตรงไป<b>ข้างหน้า</b></p>",
+            "uk": "<p><b>Частина мови:</b> Прислівник</p><p><b>Пояснення 1:</b> Продовжувати щось робити без зупинки.</p><p><b>Приклад 1:</b> Ми <b>продовжуємо</b> вчитися.</p><p><b>Пояснення 2:</b> Рухатися вперед.</p><p><b>Приклад 2:</b> Ідіть прямо <b>вперед</b>.</p>",
+            "vi": "<p><b>Loại từ:</b> Trạng từ</p><p><b>Giải thích 1:</b> Tiếp tục làm việc gì đó không dừng lại.</p><p><b>Ví dụ 1:</b> Chúng ta <b>tiếp tục</b> học.</p><p><b>Giải thích 2:</b> Di chuyển về phía trước.</p><p><b>Ví dụ 2:</b> Đi thẳng về <b>phía trước</b>.</p>"
         }
     },
     { 
         text: "fyrr", 
-        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Vísar til tíma sem var áður eða að eitthvað gerist snemma eða fyrr en venjulega.</p><p><b>Samheiti:</b> áður, snemmar.</p><p><b>Dæmi:</b> Ég vaknaði <b>fyrr</b> í dag.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring 1:</b> Vísar til þess að eitthvað gerist snemma, áður eða fyrr en venjulega.</p><p><b>Dæmi 1:</b> Ég vaknaði <b>fyrr</b> í dag.</p><p><b>Útskýring 2:</b> Oft notað með neitun (ekki fyrr en) til að sýna að eitthvað gerist seint.</p><p><b>Dæmi 2:</b> Hann kemur ekki <b>fyrr</b> en á morgun.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يشير إلى وقت سابق أو مبكر.<br><b>مثال:</b> استيقظت <b>في وقت أبكر</b> اليوم.</div>",
-            "da": "<b>Forklaring:</b> Refererer til en tidligere tid.<br><b>Eksempel:</b> Jeg vågnede <b>tidligere</b> i dag.",
-            "en": "<b>Explanation:</b> Referring to an earlier time or before.<br><b>Example:</b> I woke up <b>earlier</b> today.",
-            "tl": "<b>Paliwanag:</b> Tumutukoy sa mas maagang oras.<br><b>Halimbawa:</b> Gumising ako nang <b>mas maaga</b> ngayon.",
-            "no": "<b>Forklaring:</b> Refererer til en tidligere tid.<br><b>Eksempel:</b> Jeg våknet <b>tidligere</b> i dag.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> اشاره به زمان قبل‌تر.<br><b>مثال:</b> من امروز <b>زودتر</b> بیدار شدم.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Odnosi się do wcześniejszego momentu.<br><b>Przykład:</b> Obudziłem się dziś <b>wcześniej</b>.",
-            "ru": "<b>Объяснение:</b> Указывает на более раннее время.<br><b>Пример:</b> Сегодня я проснулся <b>раньше</b>.",
-            "es": "<b>Explicación:</b> Se refiere a un momento anterior.<br><b>Ejemplo:</b> Me desperté <b>más temprano</b> hoy.",
-            "sv": "<b>Förklaring:</b> Refererar till en tidigare tid.<br><b>Exempel:</b> Jag vaknade <b>tidigare</b> idag.",
-            "th": "<b>คำอธิบาย:</b> หมายถึงเวลาก่อนหน้านี้หรือเช้ากว่า<br><b>ตัวอย่าง:</b> วันนี้ฉันตื่น<b>เช้ากว่าเดิม</b>",
-            "uk": "<b>Пояснення:</b> Вказує на більш ранній час.<br><b>Приклад:</b> Сьогодні я прокинувся <b>раніше</b>.",
-            "vi": "<b>Giải thích:</b> Đề cập đến thời điểm sớm hơn.<br><b>Ví dụ:</b> Hôm nay tôi đã thức dậy <b>sớm hơn</b>."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> ظرف</p><p><b>الشرح 1:</b> يشير إلى حدوث شيء مبكراً أو قبل المعتاد.</p><p><b>المثال 1:</b> استيقظت <b>في وقت أبكر</b> اليوم.</p><p><b>الشرح 2:</b> يستخدم مع النفي (ليس قبل) لإظهار أن شيئاً سيحدث لاحقاً.</p><p><b>المثال 2:</b> لن يصل <b>قبل</b> الغد.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Biord (Adverbium)</p><p><b>Forklaring 1:</b> Refererer til noget, der sker tidligt eller tidligere end normalt.</p><p><b>Eksempel 1:</b> Jeg vågnede <b>tidligere</b> i dag.</p><p><b>Forklaring 2:</b> Bruges ofte med benægtelse (ikke før) for at vise, at noget sker sent.</p><p><b>Eksempel 2:</b> Han kommer ikke <b>før</b> i morgen.</p>",
+            "en": "<p><b>Word class:</b> Adverb</p><p><b>Explanation 1:</b> Refers to something happening early, before, or earlier than usual.</p><p><b>Example 1:</b> I woke up <b>earlier</b> today.</p><p><b>Explanation 2:</b> Often used with negation (not until) to show that something happens late.</p><p><b>Example 2:</b> He won't arrive <b>until</b> tomorrow.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pang-abay</p><p><b>Paliwanag 1:</b> Tumutukoy sa isang bagay na nangyari nang mas maaga sa karaniwan.</p><p><b>Halimbawa 1:</b> Gumising ako nang <b>mas maaga</b> ngayon.</p><p><b>Paliwanag 2:</b> Madalas ginagamit sa pagtanggi (hindi hanggang) para ipakita ang pagkaantala.</p><p><b>Halimbawa 2:</b> Hindi siya darating <b>hanggang</b> bukas.</p>",
+            "no": "<p><b>Ordklasse:</b> Adverb</p><p><b>Forklaring 1:</b> Refererer til at noe skjer tidlig, eller tidligere enn vanlig.</p><p><b>Eksempel 1:</b> Jeg våknet <b>tidligere</b> i dag.</p><p><b>Forklaring 2:</b> Ofte brukt med nektelse (ikke før) for å vise at noe skjer sent.</p><p><b>Eksempel 2:</b> Han kommer ikke <b>før</b> i morgen.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> قید</p><p><b>توضیح 1:</b> اشاره به چیزی دارد که زودتر از معمول اتفاق می‌افتد.</p><p><b>مثال 1:</b> من امروز <b>زودتر</b> بیدار شدم.</p><p><b>توضیح 2:</b> اغلب با منفی استفاده می‌شود (نه تا وقتی که) تا نشان دهد چیزی دیرتر رخ می‌دهد.</p><p><b>مثال 2:</b> او <b>تا</b> فردا نمی‌آید.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Przysłówek</p><p><b>Wyjaśnienie 1:</b> Odnosi się do czegoś, co dzieje się wcześniej niż zwykle.</p><p><b>Przykład 1:</b> Obudziłem się dziś <b>wcześniej</b>.</p><p><b>Wyjaśnienie 2:</b> Często używane z przeczeniem (dopiero), by pokazać, że coś wydarzy się później.</p><p><b>Przykład 2:</b> On przyjedzie <b>dopiero</b> jutro.</p>",
+            "ru": "<p><b>Часть речи:</b> Наречие</p><p><b>Объяснение 1:</b> Относится к чему-то, что происходит раньше обычного.</p><p><b>Пример 1:</b> Сегодня я проснулся <b>раньше</b>.</p><p><b>Объяснение 2:</b> Часто используется с отрицанием (не раньше, чем), чтобы показать, что что-то произойдет позже.</p><p><b>Пример 2:</b> Он приедет не <b>раньше</b> завтрашнего дня.</p>",
+            "es": "<p><b>Clase de palabra:</b> Adverbio</p><p><b>Explicación 1:</b> Se refiere a algo que ocurre temprano o antes de lo habitual.</p><p><b>Ejemplo 1:</b> Me desperté <b>más temprano</b> hoy.</p><p><b>Explicación 2:</b> A menudo se usa con negación (no hasta) para indicar que algo sucede tarde.</p><p><b>Ejemplo 2:</b> No llegará <b>hasta</b> mañana.</p>",
+            "sv": "<p><b>Ordklass:</b> Adverb</p><p><b>Förklaring 1:</b> Refererar till att något händer tidigt eller tidigare än vanligt.</p><p><b>Exempel 1:</b> Jag vaknade <b>tidigare</b> idag.</p><p><b>Förklaring 2:</b> Används ofta med negation (inte förrän) för att visa att något händer sent.</p><p><b>Exempel 2:</b> Han kommer inte <b>förrän</b> i morgon.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> กริยาวิเศษณ์</p><p><b>คำอธิบาย 1:</b> หมายถึงสิ่งที่เกิดขึ้นก่อนหรือเช้ากว่าปกติ</p><p><b>ตัวอย่าง 1:</b> วันนี้ฉันตื่น<b>เช้ากว่าเดิม</b></p><p><b>คำอธิบาย 2:</b> มักใช้กับการปฏิเสธ (จนกว่าจะ) เพื่อแสดงว่าบางสิ่งจะเกิดขึ้นในภายหลัง</p><p><b>ตัวอย่าง 2:</b> เขาจะไม่มา<b>จนกว่า</b>จะถึงวันพรุ่งนี้</p>",
+            "uk": "<p><b>Частина мови:</b> Прислівник</p><p><b>Пояснення 1:</b> Стосується чогось, що відбувається раніше, ніж зазвичай.</p><p><b>Приклад 1:</b> Сьогодні я прокинувся <b>раніше</b>.</p><p><b>Пояснення 2:</b> Часто використовується із запереченням (не раніше), щоб показати, що щось станеться пізніше.</p><p><b>Приклад 2:</b> Він приїде не <b>раніше</b> завтрашнього дня.</p>",
+            "vi": "<p><b>Loại từ:</b> Trạng từ</p><p><b>Giải thích 1:</b> Đề cập đến việc gì đó xảy ra sớm hơn bình thường.</p><p><b>Ví dụ 1:</b> Hôm nay tôi đã thức dậy <b>sớm hơn</b>.</p><p><b>Giải thích 2:</b> Thường dùng với phủ định (mãi đến khi) để chỉ việc gì đó xảy ra muộn.</p><p><b>Ví dụ 2:</b> Anh ấy sẽ không đến <b>cho đến</b> ngày mai.</p>"
         }
     },
     { 
         text: "gegnum", 
-        is_exp: "<p><b>Orðflokkur:</b> Forsetning</p><p><b>Útskýring:</b> Að fara inn um eitt og út um annað. Mjög oft notað með orðinu 'í' á undan (í gegnum).</p><p><b>Samheiti:</b> um, í gegnum.</p><p><b>Dæmi:</b> Við keyrðum í <b>gegnum</b> göngin.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Forsetning</p><p><b>Útskýring 1:</b> Að fara inn um eitt og út um annað, til dæmis í gegnum rými.</p><p><b>Dæmi 1:</b> Við keyrðum í <b>gegnum</b> göngin.</p><p><b>Útskýring 2:</b> Að skoða eða lesa efni frá upphafi til enda.</p><p><b>Dæmi 2:</b> Ég las í <b>gegnum</b> bókina.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> الدخول من جهة والخروج من أخرى (خلال / عبر).<br><b>مثال:</b> قدنا السيارة <b>عبر</b> النفق.</div>",
-            "da": "<b>Forklaring:</b> At gå ind ad det ene og ud ad det andet (gennem).<br><b>Eksempel:</b> Vi kørte <b>gennem</b> tunnelen.",
-            "en": "<b>Explanation:</b> To go in one way and out the other (through).<br><b>Example:</b> We drove <b>through</b> the tunnel.",
-            "tl": "<b>Paliwanag:</b> Pumasok sa isang daan at lumabas sa kabila (sa pamamagitan / lagpas).<br><b>Halimbawa:</b> Nagmaneho kami <b>sa pamamagitan</b> ng tunnel.",
-            "no": "<b>Forklaring:</b> Å gå inn den ene veien og ut den andre (gjennom).<br><b>Eksempel:</b> Vi kjørte <b>gjennom</b> tunnelen.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> وارد شدن از یک طرف و خارج شدن از طرف دیگر (از میان / از طریق).<br><b>مثال:</b> ما <b>از میان</b> تونل رانندگی کردیم.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Wejście z jednej strony i wyjście z drugiej (przez).<br><b>Przykład:</b> Przejechaliśmy <b>przez</b> tunel.",
-            "ru": "<b>Объяснение:</b> Войти с одной стороны и выйти с другой (через).<br><b>Пример:</b> Мы проехали <b>через</b> туннель.",
-            "es": "<b>Explicación:</b> Entrar por un lado y salir por el otro (a través de).<br><b>Ejemplo:</b> Conducimos <b>a través</b> del túnel.",
-            "sv": "<b>Förklaring:</b> Att gå in genom det ena och ut genom det andra (genom).<br><b>Exempel:</b> Vi körde <b>genom</b> tunneln.",
-            "th": "<b>คำอธิบาย:</b> การเข้าไปทางหนึ่งและออกอีกทางหนึ่ง (ผ่าน / ทะลุ)<br><b>ตัวอย่าง:</b> เราขับรถ<b>ผ่าน</b>อุโมงค์",
-            "uk": "<b>Пояснення:</b> Увійти з одного боку і вийти з іншого (через).<br><b>Приклад:</b> Ми проїхали <b>через</b> тунель.",
-            "vi": "<b>Giải thích:</b> Đi vào một đường và đi ra đường khác (xuyên qua).<br><b>Ví dụ:</b> Chúng tôi lái xe <b>xuyên qua</b> đường hầm."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> حرف جر</p><p><b>الشرح 1:</b> الدخول من جهة والخروج من أخرى (في المكان).</p><p><b>المثال 1:</b> قدنا السيارة <b>عبر</b> النفق.</p><p><b>الشرح 2:</b> قراءة أو فحص مادة من البداية للنهاية.</p><p><b>المثال 2:</b> قرأت الكتاب <b>بالكامل (من خلاله)</b>.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Forholdsord (Præposition)</p><p><b>Forklaring 1:</b> At bevæge sig ind i og ud af et rum.</p><p><b>Eksempel 1:</b> Vi kørte <b>gennem</b> tunnelen.</p><p><b>Forklaring 2:</b> At læse eller undersøge noget fra start til slut.</p><p><b>Eksempel 2:</b> Jeg læste bogen <b>igennem</b>.</p>",
+            "en": "<p><b>Word class:</b> Preposition</p><p><b>Explanation 1:</b> To move in one side and out of the other side of a space.</p><p><b>Example 1:</b> We drove <b>through</b> the tunnel.</p><p><b>Explanation 2:</b> To read or examine material from start to finish.</p><p><b>Example 2:</b> I read <b>through</b> the book.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pang-ukol</p><p><b>Paliwanag 1:</b> Pumasok sa isang gilid at lumabas sa kabila.</p><p><b>Halimbawa 1:</b> Nagmaneho kami <b>sa loob (lagpas)</b> ng tunnel.</p><p><b>Paliwanag 2:</b> Basahin o suriin ang materyal mula simula hanggang dulo.</p><p><b>Halimbawa 2:</b> Binasa ko <b>nang buo</b> ang libro.</p>",
+            "no": "<p><b>Ordklasse:</b> Preposisjon</p><p><b>Forklaring 1:</b> Å bevege seg inn og ut av et rom.</p><p><b>Eksempel 1:</b> Vi kjørte <b>gjennom</b> tunnelen.</p><p><b>Forklaring 2:</b> Å lese eller undersøke noe fra start til slutt.</p><p><b>Eksempel 2:</b> Jeg leste <b>gjennom</b> boken.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> حرف اضافه</p><p><b>توضیح 1:</b> وارد شدن از یک طرف و خارج شدن از طرف دیگر یک فضا.</p><p><b>مثال 1:</b> ما <b>از میان</b> تونل رانندگی کردیم.</p><p><b>توضیح 2:</b> خواندن یا بررسی یک مطلب از ابتدا تا انتها.</p><p><b>مثال 2:</b> من کتاب را <b>به طور کامل (از اول تا آخر)</b> خواندم.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Przyimek</p><p><b>Wyjaśnienie 1:</b> Wejście z jednej strony i wyjście z drugiej w przestrzeni.</p><p><b>Przykład 1:</b> Przejechaliśmy <b>przez</b> tunel.</p><p><b>Wyjaśnienie 2:</b> Przeczytanie lub przejrzenie materiału od początku do końca.</p><p><b>Przykład 2:</b> Przeczytałem <b>całą</b> książkę.</p>",
+            "ru": "<p><b>Часть речи:</b> Предлог</p><p><b>Объяснение 1:</b> Войти с одной стороны и выйти с другой (в пространстве).</p><p><b>Пример 1:</b> Мы проехали <b>через</b> туннель.</p><p><b>Объяснение 2:</b> Прочитать или изучить материал от начала до конца.</p><p><b>Пример 2:</b> Я прочитал книгу <b>целиком (насквозь)</b>.</p>",
+            "es": "<p><b>Clase de palabra:</b> Preposición</p><p><b>Explicación 1:</b> Entrar por un lado y salir por el otro en un espacio.</p><p><b>Ejemplo 1:</b> Conducimos <b>a través</b> del túnel.</p><p><b>Explicación 2:</b> Leer o examinar material de principio a fin.</p><p><b>Ejemplo 2:</b> Leí el libro <b>entero (de principio a fin)</b>.</p>",
+            "sv": "<p><b>Ordklass:</b> Preposition</p><p><b>Förklaring 1:</b> Att röra sig in genom och ut ur ett utrymme.</p><p><b>Exempel 1:</b> Vi körde <b>genom</b> tunneln.</p><p><b>Förklaring 2:</b> Att läsa eller granska något från början till slut.</p><p><b>Exempel 2:</b> Jag läste <b>igenom</b> boken.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> คำบุพบท</p><p><b>คำอธิบาย 1:</b> การเข้าไปทางหนึ่งและออกอีกทางหนึ่งในพื้นที่</p><p><b>ตัวอย่าง 1:</b> เราขับรถ<b>ผ่าน</b>อุโมงค์</p><p><b>คำอธิบาย 2:</b> การอ่านหรือตรวจสอบวัสดุตั้งแต่ต้นจนจบ</p><p><b>ตัวอย่าง 2:</b> ฉันอ่านหนังสือ<b>จนจบ</b></p>",
+            "uk": "<p><b>Частина мови:</b> Прийменник</p><p><b>Пояснення 1:</b> Увійти з одного боку і вийти з іншого (у просторі).</p><p><b>Приклад 1:</b> Ми проїхали <b>через</b> тунель.</p><p><b>Пояснення 2:</b> Прочитати або вивчити матеріал від початку до кінця.</p><p><b>Приклад 2:</b> Я прочитав книгу <b>повністю (наскрізь)</b>.</p>",
+            "vi": "<p><b>Loại từ:</b> Giới từ</p><p><b>Giải thích 1:</b> Đi vào một bên và đi ra bên kia của một không gian.</p><p><b>Ví dụ 1:</b> Chúng tôi lái xe <b>xuyên qua</b> đường hầm.</p><p><b>Giải thích 2:</b> Đọc hoặc kiểm tra tài liệu từ đầu đến cuối.</p><p><b>Ví dụ 2:</b> Tôi đã đọc <b>xuyên suốt</b> cuốn sách.</p>"
         }
     },
     { 
         text: "of", 
-        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Sýnir að eitthvað sé meira en passlegt eða meira en gott er (að fara yfir strikið).</p><p><b>Samheiti:</b> umfram, óhóflega.</p><p><b>Dæmi:</b> Súpan er <b>of</b> heit.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring 1:</b> Sýnir að eitthvað sé í óhófi eða meira en passlegt er.</p><p><b>Dæmi 1:</b> Súpan er <b>of</b> heit.</p><p><b>Útskýring 2:</b> Notað þegar eitthvað gerist of seint eða of snemma.</p><p><b>Dæmi 2:</b> Hann kom <b>of</b> seint á fundinn.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يوضح أن شيئاً ما أكثر من اللازم.<br><b>مثال:</b> الحساء حار <b>جداً</b>.</div>",
-            "da": "<b>Forklaring:</b> Viser, at noget er mere end passende (for).<br><b>Eksempel:</b> Suppen er <b>for</b> varm.",
-            "en": "<b>Explanation:</b> Showing that something is more than appropriate (too/excessively).<br><b>Example:</b> The soup is <b>too</b> hot.",
-            "tl": "<b>Paliwanag:</b> Nagpapakita na ang isang bagay ay labis o sobra.<br><b>Halimbawa:</b> <b>Sobra</b>ng init ng sabaw.",
-            "no": "<b>Forklaring:</b> Viser at noe er mer enn passende (for).<br><b>Eksempel:</b> Suppen er <b>for</b> varm.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> نشان می‌دهد چیزی بیش از حد است.<br><b>مثال:</b> سوپ <b>بیش از حد</b> داغ است.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Pokazuje, że czegoś jest więcej niż powinno (zbyt/za).<br><b>Przykład:</b> Zupa jest <b>zbyt</b> gorąca.",
-            "ru": "<b>Объяснение:</b> Показывает, что чего-то больше, чем нужно (слишком).<br><b>Пример:</b> Суп <b>слишком</b> горячий.",
-            "es": "<b>Explicación:</b> Muestra que algo es más que apropiado (demasiado).<br><b>Ejemplo:</b> La sopa está <b>demasiado</b> caliente.",
-            "sv": "<b>Förklaring:</b> Visar att något är mer än lämpligt (för).<br><b>Exempel:</b> Soppan är <b>för</b> varm.",
-            "th": "<b>คำอธิบาย:</b> แสดงว่าสิ่งใดสิ่งหนึ่งมากเกินพอดี (เกินไป)<br><b>ตัวอย่าง:</b> ซุปร้อน<b>เกินไป</b>",
-            "uk": "<b>Пояснення:</b> Показує, що чогось більше, ніж потрібно (занадто).<br><b>Приклад:</b> Суп <b>занадто</b> гарячий.",
-            "vi": "<b>Giải thích:</b> Cho thấy một điều gì đó vượt mức thích hợp (quá).<br><b>Ví dụ:</b> Súp <b>quá</b> nóng."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> ظرف</p><p><b>الشرح 1:</b> يوضح أن شيئاً ما أكثر من اللازم أو مفرط.</p><p><b>المثال 1:</b> الحساء حار <b>جداً (بشكل مفرط)</b>.</p><p><b>الشرح 2:</b> يستخدم عندما يحدث شيء متأخراً أو مبكراً أكثر من اللازم.</p><p><b>المثال 2:</b> وصل إلى الاجتماع متأخراً <b>جداً</b>.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Biord (Adverbium)</p><p><b>Forklaring 1:</b> Viser, at noget er overdrevet eller mere end passende.</p><p><b>Eksempel 1:</b> Suppen er <b>for</b> varm.</p><p><b>Forklaring 2:</b> Bruges, når noget sker for sent eller for tidligt.</p><p><b>Eksempel 2:</b> Han kom <b>for</b> sent til mødet.</p>",
+            "en": "<p><b>Word class:</b> Adverb</p><p><b>Explanation 1:</b> Shows that something is excessive or more than appropriate.</p><p><b>Example 1:</b> The soup is <b>too</b> hot.</p><p><b>Explanation 2:</b> Used when something happens too late or too early.</p><p><b>Example 2:</b> He arrived <b>too</b> late for the meeting.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pang-abay</p><p><b>Paliwanag 1:</b> Nagpapakita na ang isang bagay ay labis o sobra.</p><p><b>Halimbawa 1:</b> <b>Sobra</b>ng init ng sabaw.</p><p><b>Paliwanag 2:</b> Ginagamit kapag ang isang bagay ay nangyari nang huli o maaga masyado.</p><p><b>Halimbawa 2:</b> Dumating siyang <b>sobrang</b> huli para sa miting.</p>",
+            "no": "<p><b>Ordklasse:</b> Adverb</p><p><b>Forklaring 1:</b> Viser at noe er overdrevet eller mer enn passende.</p><p><b>Eksempel 1:</b> Suppen er <b>for</b> varm.</p><p><b>Forklaring 2:</b> Brukes når noe skjer for sent eller for tidlig.</p><p><b>Eksempel 2:</b> Han kom <b>for</b> sent til møtet.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> قید</p><p><b>توضیح 1:</b> نشان می‌دهد چیزی بیش از حد یا نامناسب است.</p><p><b>مثال 1:</b> سوپ <b>بیش از حد</b> داغ است.</p><p><b>توضیح 2:</b> زمانی استفاده می‌شود که چیزی خیلی دیر یا خیلی زود اتفاق بیفتد.</p><p><b>مثال 2:</b> او <b>خیلی (بیش از حد)</b> دیر به جلسه رسید.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Przysłówek</p><p><b>Wyjaśnienie 1:</b> Pokazuje, że czegoś jest więcej niż powinno (zbyt).</p><p><b>Przykład 1:</b> Zupa jest <b>zbyt</b> gorąca.</p><p><b>Wyjaśnienie 2:</b> Używane, gdy coś dzieje się zbyt późno lub zbyt wcześnie.</p><p><b>Przykład 2:</b> Przyszedł na spotkanie <b>zbyt</b> późno.</p>",
+            "ru": "<p><b>Часть речи:</b> Наречие</p><p><b>Объяснение 1:</b> Показывает, что чего-то больше, чем нужно (слишком).</p><p><b>Пример 1:</b> Суп <b>слишком</b> горячий.</p><p><b>Объяснение 2:</b> Используется, когда что-то происходит слишком поздно или слишком рано.</p><p><b>Пример 2:</b> Он пришел на встречу <b>слишком</b> поздно.</p>",
+            "es": "<p><b>Clase de palabra:</b> Adverbio</p><p><b>Explicación 1:</b> Muestra que algo es excesivo o más que apropiado.</p><p><b>Ejemplo 1:</b> La sopa está <b>demasiado</b> caliente.</p><p><b>Explicación 2:</b> Se usa cuando algo sucede demasiado tarde o demasiado temprano.</p><p><b>Ejemplo 2:</b> Llegó <b>demasiado</b> tarde a la reunión.</p>",
+            "sv": "<p><b>Ordklass:</b> Adverb</p><p><b>Förklaring 1:</b> Visar att något är överdrivet eller mer än lämpligt.</p><p><b>Exempel 1:</b> Soppan är <b>för</b> varm.</p><p><b>Förklaring 2:</b> Används när något händer för sent eller för tidigt.</p><p><b>Exempel 2:</b> Han kom <b>för</b> sent till mötet.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> กริยาวิเศษณ์</p><p><b>คำอธิบาย 1:</b> แสดงว่าสิ่งใดสิ่งหนึ่งมากเกินความเหมาะสม</p><p><b>ตัวอย่าง 1:</b> ซุปร้อน<b>เกินไป</b></p><p><b>คำอธิบาย 2:</b> ใช้เมื่อมีบางสิ่งเกิดขึ้นสายเกินไปหรือเร็วเกินไป</p><p><b>ตัวอย่าง 2:</b> เขามาประชุมสาย<b>เกินไป</b></p>",
+            "uk": "<p><b>Частина мови:</b> Прислівник</p><p><b>Пояснення 1:</b> Показує, що чогось більше, ніж потрібно (занадто).</p><p><b>Приклад 1:</b> Суп <b>занадто</b> гарячий.</p><p><b>Пояснення 2:</b> Використовується, коли щось відбувається занадто пізно або занадто рано.</p><p><b>Приклад 2:</b> Він прийшов на зустріч <b>занадто</b> пізно.</p>",
+            "vi": "<p><b>Loại từ:</b> Trạng từ</p><p><b>Giải thích 1:</b> Cho thấy một điều gì đó vượt mức hoặc quá mức thích hợp.</p><p><b>Ví dụ 1:</b> Súp <b>quá</b> nóng.</p><p><b>Giải thích 2:</b> Dùng khi việc gì đó xảy ra quá muộn hoặc quá sớm.</p><p><b>Ví dụ 2:</b> Anh ấy đến cuộc họp <b>quá</b> muộn.</p>"
         }
     },
     { 
         text: "alls", 
-        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring:</b> Merkir aðallega í heildina. Mjög oft notað með neitun til að styrkja hana (alls ekki = yfirleitt ekki).</p><p><b>Samheiti:</b> yfirleitt, algerlega.</p><p><b>Dæmi:</b> Þetta var <b>alls</b> ekki slæmt.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Atviksorð</p><p><b>Útskýring 1:</b> Notað með neitun til að styrkja hana (alls ekki = yfirleitt ekki eða engan veginn).</p><p><b>Dæmi 1:</b> Þetta var <b>alls</b> ekki slæmt.</p><p><b>Útskýring 2:</b> Þýðir í heildina eða samtals þegar talað er um fjölda eða magn.</p><p><b>Dæmi 2:</b> Þetta kostaði <b>alls</b> þúsund krónur.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يعني بالإجمال أو على الإطلاق (يستخدم غالباً مع النفي).<br><b>مثال:</b> هذا لم يكن سيئاً <b>على الإطلاق</b>.</div>",
-            "da": "<b>Forklaring:</b> Betyder i det hele taget eller overhovedet (ofte brugt med benægtelse).<br><b>Eksempel:</b> Det var <b>slet</b> ikke dårligt.",
-            "en": "<b>Explanation:</b> Meaning altogether or at all (often used with negation: 'not at all').<br><b>Example:</b> This was not bad <b>at all</b>.",
-            "tl": "<b>Paliwanag:</b> Nangangahulugang sa kabuuan o kahit man lang (madalas ginagamit sa pagtanggi).<br><b>Halimbawa:</b> Hindi ito masama <b>kahit man lang</b>.",
-            "no": "<b>Forklaring:</b> Betyr i det hele tatt eller overhodet (ofte brukt med nektelse).<br><b>Eksempel:</b> Dette var <b>slett</b> ikke verst.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به معنی اصلاً یا در کل (اغلب با منفی استفاده می‌شود).<br><b>مثال:</b> این <b>اصلاً</b> بد نبود.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Oznaczający w ogóle lub całkowicie (często z przeczeniem: 'wcale nie').<br><b>Przykład:</b> To <b>wcale</b> nie było złe.",
-            "ru": "<b>Объяснение:</b> Означает в целом или вообще (часто с отрицанием: 'вовсе не').<br><b>Пример:</b> Это было <b>вовсе</b> не плохо.",
-            "es": "<b>Explicación:</b> Significa en absoluto o del todo (a menudo se usa con negación).<br><b>Ejemplo:</b> Esto no estuvo mal <b>en absoluto</b>.",
-            "sv": "<b>Förklaring:</b> Betyder i allmänhet eller överhuvudtaget (ofta med negation).<br><b>Exempel:</b> Det var <b>alls</b> inte dåligt.",
-            "th": "<b>คำอธิบาย:</b> หมายถึงเลย หรือทั้งหมด (มักใช้กับการปฏิเสธ: ไม่...เลย)<br><b>ตัวอย่าง:</b> มันไม่ได้แย่<b>เลย</b>",
-            "uk": "<b>Пояснення:</b> Означає взагалі або зовсім (часто з запереченням: 'зовсім не').<br><b>Приклад:</b> Це було <b>зовсім</b> не погано.",
-            "vi": "<b>Giải thích:</b> Có nghĩa là hoàn toàn hoặc chút nào (thường dùng với phủ định: 'không chút nào').<br><b>Ví dụ:</b> Điều này không tệ <b>chút nào</b>."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> ظرف</p><p><b>الشرح 1:</b> يستخدم مع النفي للتأكيد (على الإطلاق).</p><p><b>المثال 1:</b> هذا لم يكن سيئاً <b>على الإطلاق</b>.</p><p><b>الشرح 2:</b> يعني الإجمالي عند الحديث عن العدد أو الكمية.</p><p><b>المثال 2:</b> كلف هذا ألف كرونا <b>إجمالاً</b>.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Biord (Adverbium)</p><p><b>Forklaring 1:</b> Bruges med benægtelse for at forstærke den (slet ikke).</p><p><b>Eksempel 1:</b> Det var <b>slet</b> ikke dårligt.</p><p><b>Forklaring 2:</b> Betyder i alt eller samlet, når man taler om mængder.</p><p><b>Eksempel 2:</b> Det kostede <b>i alt</b> tusind kroner.</p>",
+            "en": "<p><b>Word class:</b> Adverb</p><p><b>Explanation 1:</b> Used with negation for emphasis (not at all).</p><p><b>Example 1:</b> This was not bad <b>at all</b>.</p><p><b>Explanation 2:</b> Means in total or altogether when talking about numbers or amounts.</p><p><b>Example 2:</b> This cost a thousand krónur <b>in total</b>.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pang-abay</p><p><b>Paliwanag 1:</b> Ginagamit na may pagtanggi para magbigay-diin (kahit man lang).</p><p><b>Halimbawa 1:</b> Hindi ito masama <b>kahit man lang</b>.</p><p><b>Paliwanag 2:</b> Nangangahulugang sa kabuuan kapag pinag-uusapan ang dami.</p><p><b>Halimbawa 2:</b> Nagkakahalaga ito ng isang libong krónur <b>sa kabuuan</b>.</p>",
+            "no": "<p><b>Ordklasse:</b> Adverb</p><p><b>Forklaring 1:</b> Brukes med nektelse for å forsterke den (slett ikke).</p><p><b>Eksempel 1:</b> Dette var <b>slett</b> ikke verst.</p><p><b>Forklaring 2:</b> Betyr totalt eller til sammen når man snakker om mengder.</p><p><b>Eksempel 2:</b> Dette kostet <b>totalt</b> tusen kroner.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> قید</p><p><b>توضیح 1:</b> همراه با منفی برای تاکید استفاده می‌شود (اصلاً).</p><p><b>مثال 1:</b> این <b>اصلاً</b> بد نبود.</p><p><b>توضیح 2:</b> هنگام صحبت در مورد اعداد به معنای در مجموع است.</p><p><b>مثال 2:</b> این <b>در مجموع</b> هزار کرون هزینه داشت.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Przysłówek</p><p><b>Wyjaśnienie 1:</b> Używane z przeczeniem dla wzmocnienia (wcale nie).</p><p><b>Przykład 1:</b> To <b>wcale</b> nie było złe.</p><p><b>Wyjaśnienie 2:</b> Oznacza łącznie lub w sumie, gdy mówimy o ilości.</p><p><b>Przykład 2:</b> To kosztowało <b>łącznie</b> tysiąc koron.</p>",
+            "ru": "<p><b>Часть речи:</b> Наречие</p><p><b>Объяснение 1:</b> Используется с отрицанием для усиления (вовсе не, совсем не).</p><p><b>Пример 1:</b> Это было <b>совсем</b> не плохо.</p><p><b>Объяснение 2:</b> Означает в общей сложности или всего при разговоре о количестве.</p><p><b>Пример 2:</b> Это стоило <b>всего</b> тысячу крон.</p>",
+            "es": "<p><b>Clase de palabra:</b> Adverbio</p><p><b>Explicación 1:</b> Se usa con negación para dar énfasis (en absoluto / para nada).</p><p><b>Ejemplo 1:</b> Esto no estuvo mal <b>en absoluto</b>.</p><p><b>Explicación 2:</b> Significa en total cuando se habla de números o cantidades.</p><p><b>Ejemplo 2:</b> Esto costó mil coronas <b>en total</b>.</p>",
+            "sv": "<p><b>Ordklass:</b> Adverb</p><p><b>Förklaring 1:</b> Används med negation för att förstärka den (alls inte).</p><p><b>Exempel 1:</b> Det var <b>alls</b> inte dåligt.</p><p><b>Förklaring 2:</b> Betyder totalt eller sammanlagt när man pratar om mängder.</p><p><b>Exempel 2:</b> Detta kostade <b>totalt</b> tusen kronor.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> กริยาวิเศษณ์</p><p><b>คำอธิบาย 1:</b> ใช้กับการปฏิเสธเพื่อเน้นย้ำ (ไม่...เลย)</p><p><b>ตัวอย่าง 1:</b> มันไม่ได้แย่<b>เลย</b></p><p><b>คำอธิบาย 2:</b> หมายถึงโดยรวมทั้งหมดเมื่อพูดถึงจำนวน</p><p><b>ตัวอย่าง 2:</b> สิ่งนี้ราคาหนึ่งพันโครนา<b>รวมทั้งหมด</b></p>",
+            "uk": "<p><b>Частина мови:</b> Прислівник</p><p><b>Пояснення 1:</b> Використовується із запереченням для підсилення (зовсім не).</p><p><b>Приклад 1:</b> Це було <b>зовсім</b> не погано.</p><p><b>Пояснення 2:</b> Означає загалом або всього, коли йдеться про кількість.</p><p><b>Приклад 2:</b> Це коштувало <b>всього</b> тисячу крон.</p>",
+            "vi": "<p><b>Loại từ:</b> Trạng từ</p><p><b>Giải thích 1:</b> Dùng với câu phủ định để nhấn mạnh (không chút nào).</p><p><b>Ví dụ 1:</b> Điều này không tệ <b>chút nào</b>.</p><p><b>Giải thích 2:</b> Có nghĩa là tổng cộng khi nói về số lượng hoặc lượng.</p><p><b>Ví dụ 2:</b> Chi phí này <b>tổng cộng</b> là một ngàn krónur.</p>"
         }
     },
     { 
         text: "mörg", 
-        is_exp: "<p><b>Orðflokkur:</b> Lýsingarorð</p><p><b>Útskýring:</b> Merkir að eitthvað sé í miklum fjölda. Er í fleirtölu (hvorugkyn, t.d. mörg börn, mörg tré, eða kvenkyn).</p><p><b>Samheiti:</b> fjölmörg, mikill fjöldi.</p><p><b>Dæmi:</b> Það eru <b>mörg</b> tré í garðinum.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Lýsingarorð</p><p><b>Útskýring 1:</b> Merkir að eitthvað sé í miklum fjölda. Er í fleirtölu, hvorugkyni.</p><p><b>Dæmi 1:</b> Það eru <b>mörg</b> tré í garðinum.</p><p><b>Útskýring 2:</b> Einnig notað í kvenkyni eða um fólk í hvorugkyni (t.d. mörg börn).</p><p><b>Dæmi 2:</b> Hún á <b>mörg</b> börn.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يعني عدداً كبيراً من شيء ما.<br><b>مثال:</b> يوجد <b>العديد</b> من الأشجار في الحديقة.</div>",
-            "da": "<b>Forklaring:</b> Betyder et stort antal af noget.<br><b>Eksempel:</b> Der er <b>mange</b> træer i parken.",
-            "en": "<b>Explanation:</b> Meaning a large number of something (many).<br><b>Example:</b> There are <b>many</b> trees in the park.",
-            "tl": "<b>Paliwanag:</b> Nangangahulugang malaking bilang ng isang bagay.<br><b>Halimbawa:</b> <b>Maraming</b> puno sa parke.",
-            "no": "<b>Forklaring:</b> Betyr et stort antall av noe.<br><b>Eksempel:</b> Det er <b>mange</b> trær i parken.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به معنی تعداد زیادی از چیزی.<br><b>مثال:</b> درختان <b>بسیاری</b> در پارک وجود دارد.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Oznaczający dużą ilość czegoś (wiele).<br><b>Przykład:</b> W parku jest <b>wiele</b> drzew.",
-            "ru": "<b>Объяснение:</b> Означает большое количество чего-либо.<br><b>Пример:</b> В парке <b>много</b> деревьев.",
-            "es": "<b>Explicación:</b> Significa un gran número de algo.<br><b>Ejemplo:</b> Hay <b>muchos</b> árboles en el parque.",
-            "sv": "<b>Förklaring:</b> Betyder ett stort antal av något.<br><b>Exempel:</b> Det finns <b>många</b> träd i parken.",
-            "th": "<b>คำอธิบาย:</b> หมายถึงจำนวนมากมาย<br><b>ตัวอย่าง:</b> มีต้นไม้<b>มากมาย</b>ในสวนสาธารณะ",
-            "uk": "<b>Пояснення:</b> Означає велику кількість чогось.<br><b>Приклад:</b> У парку <b>багато</b> дерев.",
-            "vi": "<b>Giải thích:</b> Có nghĩa là một số lượng lớn thứ gì đó.<br><b>Ví dụ:</b> Có <b>rất nhiều</b> cây trong công viên."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> صفة</p><p><b>الشرح 1:</b> يعني عدداً كبيراً من شيء ما بصيغة الجمع.</p><p><b>المثال 1:</b> يوجد <b>العديد</b> من الأشجار في الحديقة.</p><p><b>الشرح 2:</b> يستخدم أيضاً للأشخاص (مثل: العديد من الأطفال).</p><p><b>المثال 2:</b> لديها <b>العديد</b> من الأطفال.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Tillægsord (Adjektiv)</p><p><b>Forklaring 1:</b> Betyder et stort antal af noget i flertal.</p><p><b>Eksempel 1:</b> Der er <b>mange</b> træer i parken.</p><p><b>Forklaring 2:</b> Bruges også om mennesker (f.eks. mange børn).</p><p><b>Eksempel 2:</b> Hun har <b>mange</b> børn.</p>",
+            "en": "<p><b>Word class:</b> Adjective</p><p><b>Explanation 1:</b> Meaning a large number of something in plural (many).</p><p><b>Example 1:</b> There are <b>many</b> trees in the park.</p><p><b>Explanation 2:</b> Also used for people (e.g., many children).</p><p><b>Example 2:</b> She has <b>many</b> children.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pang-uri</p><p><b>Paliwanag 1:</b> Nangangahulugang malaking bilang ng isang bagay sa maramihan.</p><p><b>Halimbawa 1:</b> May <b>maraming</b> puno sa parke.</p><p><b>Paliwanag 2:</b> Ginagamit din para sa mga tao (hal., maraming bata).</p><p><b>Halimbawa 2:</b> Mayroon siyang <b>maraming</b> anak.</p>",
+            "no": "<p><b>Ordklasse:</b> Adjektiv</p><p><b>Forklaring 1:</b> Betyr et stort antall av noe i flertall.</p><p><b>Eksempel 1:</b> Det er <b>mange</b> trær i parken.</p><p><b>Forklaring 2:</b> Brukes også om mennesker (f.eks. mange barn).</p><p><b>Eksempel 2:</b> Hun har <b>mange</b> barn.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> صفت</p><p><b>توضیح 1:</b> به معنی تعداد زیادی از چیزی به صورت جمع.</p><p><b>مثال 1:</b> درختان <b>بسیاری</b> در پارک وجود دارد.</p><p><b>توضیح 2:</b> همچنین برای افراد استفاده می‌شود (مثلاً کودکان بسیار).</p><p><b>مثال 2:</b> او فرزندان <b>بسیاری</b> دارد.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Przymiotnik</p><p><b>Wyjaśnienie 1:</b> Oznacza dużą ilość czegoś w liczbie mnogiej (wiele).</p><p><b>Przykład 1:</b> W parku jest <b>wiele</b> drzew.</p><p><b>Wyjaśnienie 2:</b> Używane również w odniesieniu do ludzi (np. wiele dzieci).</p><p><b>Przykład 2:</b> Ona ma <b>wiele</b> dzieci.</p>",
+            "ru": "<p><b>Часть речи:</b> Прилагательное</p><p><b>Объяснение 1:</b> Означает большое количество чего-либо во множественном числе (много).</p><p><b>Пример 1:</b> В парке <b>много</b> деревьев.</p><p><b>Объяснение 2:</b> Также используется для людей (например, много детей).</p><p><b>Пример 2:</b> У нее <b>много</b> детей.</p>",
+            "es": "<p><b>Clase de palabra:</b> Adjetivo</p><p><b>Explicación 1:</b> Significa un gran número de algo en plural (muchos/muchas).</p><p><b>Ejemplo 1:</b> Hay <b>muchos</b> árboles en el parque.</p><p><b>Explicación 2:</b> También se usa para personas (por ejemplo, muchos niños).</p><p><b>Ejemplo 2:</b> Ella tiene <b>muchos</b> hijos.</p>",
+            "sv": "<p><b>Ordklass:</b> Adjektiv</p><p><b>Förklaring 1:</b> Betyder ett stort antal av något i plural.</p><p><b>Exempel 1:</b> Det finns <b>många</b> träd i parken.</p><p><b>Förklaring 2:</b> Används även om personer (t.ex. många barn).</p><p><b>Exempel 2:</b> Hon har <b>många</b> barn.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> คำคุณศัพท์</p><p><b>คำอธิบาย 1:</b> หมายถึงจำนวนมากมายของบางสิ่งในรูปพหูพจน์</p><p><b>ตัวอย่าง 1:</b> มีต้นไม้<b>มากมาย</b>ในสวนสาธารณะ</p><p><b>คำอธิบาย 2:</b> ใช้สำหรับผู้คนเช่นกัน (เช่น เด็กหลายคน)</p><p><b>ตัวอย่าง 2:</b> เธอมีลูก<b>หลายคน</b></p>",
+            "uk": "<p><b>Частина мови:</b> Прикметник</p><p><b>Пояснення 1:</b> Означає велику кількість чогось у множині (багато).</p><p><b>Приклад 1:</b> У парку <b>багато</b> дерев.</p><p><b>Пояснення 2:</b> Також використовується для людей (наприклад, багато дітей).</p><p><b>Приклад 2:</b> У неї <b>багато</b> дітей.</p>",
+            "vi": "<p><b>Loại từ:</b> Tính từ</p><p><b>Giải thích 1:</b> Chỉ số lượng lớn thứ gì đó ở số nhiều (nhiều).</p><p><b>Ví dụ 1:</b> Có <b>rất nhiều</b> cây trong công viên.</p><p><b>Giải thích 2:</b> Cũng dùng cho người (ví dụ: nhiều trẻ em).</p><p><b>Ví dụ 2:</b> Cô ấy có <b>nhiều</b> con.</p>"
         }
     },
     { 
         text: "fyrstu", 
-        is_exp: "<p><b>Orðflokkur:</b> Töluorð / Raðtala</p><p><b>Útskýring:</b> Á við um það sem er númer eitt í röðinni eða er á undan öllu öðru. Oft notað í fleirtölu um marga hluti sem koma fyrst.</p><p><b>Samheiti:</b> fremstu, upphaflegu.</p><p><b>Dæmi:</b> Þetta eru <b>fyrstu</b> dagarnir í skólanum.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Töluorð / Raðtala</p><p><b>Útskýring 1:</b> Á við um hluti eða tímabil sem eru númer eitt í röðinni (fleirtala).</p><p><b>Dæmi 1:</b> Þetta eru <b>fyrstu</b> dagarnir í skólanum.</p><p><b>Útskýring 2:</b> Notað um eitthvað sem ber sigur úr býtum (t.d. verðlaun).</p><p><b>Dæmi 2:</b> Þau unnu <b>fyrstu</b> verðlaun.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يشير إلى ما يسبق كل شيء آخر (الأولى).<br><b>مثال:</b> هذه هي الأيام <b>الأولى</b> في المدرسة.</div>",
-            "da": "<b>Forklaring:</b> Gælder for det, der kommer før alt andet (første).<br><b>Eksempel:</b> Dette er de <b>første</b> dage i skolen.",
-            "en": "<b>Explanation:</b> Referring to what comes before everything else (first).<br><b>Example:</b> These are the <b>first</b> days in school.",
-            "tl": "<b>Paliwanag:</b> Tumutukoy sa nauuna sa lahat (una).<br><b>Halimbawa:</b> Ito ang mga <b>unang</b> araw sa paaralan.",
-            "no": "<b>Forklaring:</b> Gjelder det som kommer før alt annet (første).<br><b>Eksempel:</b> Dette er de <b>første</b> dagene på skolen.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به آنچه قبل از همه چیز می‌آید اشاره دارد (اولین).<br><b>مثال:</b> اینها <b>اولین</b> روزهای مدرسه هستند.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Odnoszący się do tego, co jest przed wszystkim innym (pierwsze).<br><b>Przykład:</b> To są <b>pierwsze</b> dni w szkole.",
-            "ru": "<b>Объяснение:</b> Относится к тому, что предшествует всему остальному (первые).<br><b>Пример:</b> Это <b>первые</b> дни в школе.",
-            "es": "<b>Explicación:</b> Se refiere a lo que va antes que todo lo demás (primeros).<br><b>Ejemplo:</b> Estos son los <b>primeros</b> días en la escuela.",
-            "sv": "<b>Förklaring:</b> Gäller för det som kommer före allt annat (första).<br><b>Exempel:</b> Detta är de <b>första</b> dagarna i skolan.",
-            "th": "<b>คำอธิบาย:</b> หมายถึงสิ่งที่มาก่อนสิ่งอื่นทั้งหมด (แรก)<br><b>ตัวอย่าง:</b> นี่คือวัน<b>แรก ๆ</b> ในโรงเรียน",
-            "uk": "<b>Пояснення:</b> Стосується того, що йде перед усім іншим (перші).<br><b>Приклад:</b> Це <b>перші</b> дні в школі.",
-            "vi": "<b>Giải thích:</b> Chỉ những gì xuất hiện trước mọi thứ khác (đầu tiên).<br><b>Ví dụ:</b> Đây là những ngày <b>đầu tiên</b> ở trường."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> عدد ترتيبي</p><p><b>الشرح 1:</b> يشير إلى أشياء أو فترات تأتي أولاً في التسلسل (جمع).</p><p><b>المثال 1:</b> هذه هي الأيام <b>الأولى</b> في المدرسة.</p><p><b>الشرح 2:</b> يستخدم للإشارة إلى الفوز أو المرتبة الأولى.</p><p><b>المثال 2:</b> لقد فازوا بالجائزة <b>الأولى</b>.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Ordenstal</p><p><b>Forklaring 1:</b> Gælder for ting eller perioder, der er nummer et i en rækkefølge (flertal).</p><p><b>Eksempel 1:</b> Dette er de <b>første</b> dage i skolen.</p><p><b>Forklaring 2:</b> Bruges om at vinde eller komme på førstepladsen.</p><p><b>Eksempel 2:</b> De vandt <b>førstepræmien</b>.</p>",
+            "en": "<p><b>Word class:</b> Numeral (Ordinal)</p><p><b>Explanation 1:</b> Refers to things or periods that are number one in a sequence (plural).</p><p><b>Example 1:</b> These are the <b>first</b> days in school.</p><p><b>Explanation 2:</b> Used when winning or taking first place.</p><p><b>Example 2:</b> They won <b>first</b> prize.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pamilang na panunuran</p><p><b>Paliwanag 1:</b> Tumutukoy sa mga bagay na numero uno sa pagkakasunud-sunod (maramihan).</p><p><b>Halimbawa 1:</b> Ito ang mga <b>unang</b> araw sa paaralan.</p><p><b>Paliwanag 2:</b> Ginagamit kapag nananalo o nakakakuha ng unang pwesto.</p><p><b>Halimbawa 2:</b> Nanalo sila ng <b>unang</b> gantimpala.</p>",
+            "no": "<p><b>Ordklasse:</b> Ordenstall</p><p><b>Forklaring 1:</b> Gjelder ting eller perioder som er nummer én i en rekkefølge (flertall).</p><p><b>Eksempel 1:</b> Dette er de <b>første</b> dagene på skolen.</p><p><b>Forklaring 2:</b> Brukes om å vinne eller ta førsteplass.</p><p><b>Eksempel 2:</b> De vant <b>førstepremie</b>.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> عدد ترتیبی</p><p><b>توضیح 1:</b> به چیزها یا دوره‌هایی که در یک دنباله شماره یک هستند اشاره دارد.</p><p><b>مثال 1:</b> اینها <b>اولین</b> روزهای مدرسه هستند.</p><p><b>توضیح 2:</b> در زمان برنده شدن یا کسب مقام اول استفاده می‌شود.</p><p><b>مثال 2:</b> آنها جایزه <b>اول</b> را بردند.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Liczebnik porządkowy</p><p><b>Wyjaśnienie 1:</b> Odnosi się do rzeczy lub okresów, które są pierwsze w kolejności (liczba mnoga).</p><p><b>Przykład 1:</b> To są <b>pierwsze</b> dni w szkole.</p><p><b>Wyjaśnienie 2:</b> Używane, gdy ktoś wygrywa lub zajmuje pierwsze miejsce.</p><p><b>Przykład 2:</b> Zdobyli <b>pierwszą</b> nagrodę.</p>",
+            "ru": "<p><b>Часть речи:</b> Порядковое числительное</p><p><b>Объяснение 1:</b> Относится к вещам или периодам, которые идут первыми по порядку (множественное число).</p><p><b>Пример 1:</b> Это <b>первые</b> дни в школе.</p><p><b>Объяснение 2:</b> Используется при выигрыше или занятии первого места.</p><p><b>Пример 2:</b> Они выиграли <b>первый</b> приз.</p>",
+            "es": "<p><b>Clase de palabra:</b> Numeral ordinal</p><p><b>Explicación 1:</b> Se refiere a cosas o períodos que son los primeros en una secuencia (plural).</p><p><b>Ejemplo 1:</b> Estos son los <b>primeros</b> días en la escuela.</p><p><b>Explicación 2:</b> Se utiliza al ganar o tomar el primer lugar.</p><p><b>Ejemplo 2:</b> Ganaron el <b>primer</b> premio.</p>",
+            "sv": "<p><b>Ordklass:</b> Ordningstal</p><p><b>Förklaring 1:</b> Gäller saker eller perioder som är nummer ett i en sekvens (plural).</p><p><b>Exempel 1:</b> Detta är de <b>första</b> dagarna i skolan.</p><p><b>Förklaring 2:</b> Används när man vinner eller tar första plats.</p><p><b>Exempel 2:</b> De vann <b>förstapriset</b>.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> เลขลำดับ</p><p><b>คำอธิบาย 1:</b> อ้างถึงสิ่งหรือช่วงเวลาที่เป็นอันดับแรกในลำดับ</p><p><b>ตัวอย่าง 1:</b> นี่คือวัน<b>แรก ๆ</b> ในโรงเรียน</p><p><b>คำอธิบาย 2:</b> ใช้เมื่อชนะหรือได้ที่หนึ่ง</p><p><b>ตัวอย่าง 2:</b> พวกเขาได้รับรางวัลที่<b>หนึ่ง</b></p>",
+            "uk": "<p><b>Частина мови:</b> Порядковий числівник</p><p><b>Пояснення 1:</b> Стосується речей або періодів, які є першими за порядком (множина).</p><p><b>Приклад 1:</b> Це <b>перші</b> дні в школі.</p><p><b>Пояснення 2:</b> Використовується під час виграшу або здобуття першого місця.</p><p><b>Приклад 2:</b> Вони виграли <b>перший</b> приз.</p>",
+            "vi": "<p><b>Loại từ:</b> Số thứ tự</p><p><b>Giải thích 1:</b> Đề cập đến những thứ hoặc khoảng thời gian đầu tiên trong một chuỗi.</p><p><b>Ví dụ 1:</b> Đây là những ngày <b>đầu tiên</b> ở trường.</p><p><b>Giải thích 2:</b> Được sử dụng khi chiến thắng hoặc giành vị trí số một.</p><p><b>Ví dụ 2:</b> Họ đã giành giải <b>nhất (đầu tiên)</b>.</p>"
         }
     },
     { 
         text: "öld", 
-        is_exp: "<p><b>Orðflokkur:</b> Nafnorð (kvenkyn)</p><p><b>Útskýring:</b> Tímabil sem spannar nákvæmlega eitt hundrað ár í senn (t.d. 1900 - 1999).</p><p><b>Samheiti:</b> hundrað ár.</p><p><b>Dæmi:</b> Við lifum á 21. <b>öld</b>.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Nafnorð (kvenkyn)</p><p><b>Útskýring 1:</b> Tímabil sem spannar nákvæmlega eitt hundrað ár í senn.</p><p><b>Dæmi 1:</b> Við lifum á 21. <b>öld</b>.</p><p><b>Útskýring 2:</b> Vísar oft til ákveðins liðins tíma í sagnfræði (t.d. síðasta öld).</p><p><b>Dæmi 2:</b> Þetta hús er frá síðustu <b>öld</b>.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> فترة زمنية تمتد لمئة عام (قرن).<br><b>مثال:</b> نحن نعيش في الـ<b>قرن</b> الحادي والعشرين.</div>",
-            "da": "<b>Forklaring:</b> En periode på hundrede år (århundrede).<br><b>Eksempel:</b> Vi lever i det 21. <b>århundrede</b>.",
-            "en": "<b>Explanation:</b> A period spanning one hundred years (century).<br><b>Example:</b> We live in the 21st <b>century</b>.",
-            "tl": "<b>Paliwanag:</b> Panahon na sumasaklaw sa isang daang taon (siglo).<br><b>Halimbawa:</b> Nabubuhay tayo sa ika-21 <b>siglo</b>.",
-            "no": "<b>Forklaring:</b> En periode på hundre år (århundre).<br><b>Eksempel:</b> Vi lever i det 21. <b>århundret</b>.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> دوره صد ساله (قرن).<br><b>مثال:</b> ما در <b>قرن</b> بیست و یکم زندگی می‌کنیم.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Okres stu lat (wiek).<br><b>Przykład:</b> Żyjemy w XXI <b>wieku</b>.",
-            "ru": "<b>Объяснение:</b> Период в сто лет (век).<br><b>Пример:</b> Мы живем в 21 <b>веке</b>.",
-            "es": "<b>Explicación:</b> Un período que abarca cien años (siglo).<br><b>Ejemplo:</b> Vivimos en el <b>siglo</b> 21.",
-            "sv": "<b>Förklaring:</b> En period på hundra år (århundrade).<br><b>Exempel:</b> Vi lever på 2000-talet (21:a <b>århundradet</b>).",
-            "th": "<b>คำอธิบาย:</b> ช่วงเวลาหนึ่งร้อยปี (ศตวรรษ)<br><b>ตัวอย่าง:</b> เราอยู่ใน<b>ศตวรรษ</b>ที่ 21",
-            "uk": "<b>Пояснення:</b> Період у сто років (століття).<br><b>Приклад:</b> Ми живемо у 21 <b>столітті</b>.",
-            "vi": "<b>Giải thích:</b> Khoảng thời gian một trăm năm (thế kỷ).<br><b>Ví dụ:</b> Chúng ta đang sống ở <b>thế kỷ</b> 21."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> اسم</p><p><b>الشرح 1:</b> فترة زمنية تمتد لمائة عام بالضبط.</p><p><b>المثال 1:</b> نحن نعيش في الـ<b>قرن</b> الحادي والعشرين.</p><p><b>الشرح 2:</b> يشير غالباً إلى فترة ماضية معينة في التاريخ.</p><p><b>المثال 2:</b> هذا المنزل من الـ<b>قرن</b> الماضي.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Navneord (Substantiv)</p><p><b>Forklaring 1:</b> En periode på nøjagtigt hundrede år (århundrede).</p><p><b>Eksempel 1:</b> Vi lever i det 21. <b>århundrede</b>.</p><p><b>Forklaring 2:</b> Refererer ofte til en bestemt fortidig tid i historien.</p><p><b>Eksempel 2:</b> Dette hus er fra forrige <b>århundrede</b>.</p>",
+            "en": "<p><b>Word class:</b> Noun</p><p><b>Explanation 1:</b> A period spanning exactly one hundred years (century).</p><p><b>Example 1:</b> We live in the 21st <b>century</b>.</p><p><b>Explanation 2:</b> Often refers to a specific past time in history.</p><p><b>Example 2:</b> This house is from the last <b>century</b>.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Pangngalan</p><p><b>Paliwanag 1:</b> Panahon na sumasaklaw nang eksaktong isang daang taon (siglo).</p><p><b>Halimbawa 1:</b> Nabubuhay tayo sa ika-21 <b>siglo</b>.</p><p><b>Paliwanag 2:</b> Madalas tumutukoy sa isang partikular na nakaraang panahon sa kasaysayan.</p><p><b>Halimbawa 2:</b> Ang bahay na ito ay mula pa noong nakaraang <b>siglo</b>.</p>",
+            "no": "<p><b>Ordklasse:</b> Substantiv</p><p><b>Forklaring 1:</b> En periode på nøyaktig hundre år (århundre).</p><p><b>Eksempel 1:</b> Vi lever i det 21. <b>århundret</b>.</p><p><b>Forklaring 2:</b> Refererer ofte til en bestemt fortidig tid i historien.</p><p><b>Eksempel 2:</b> Dette huset er fra forrige <b>århundre</b>.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> اسم</p><p><b>توضیح 1:</b> دوره‌ای که دقیقاً صد سال را در بر می‌گیرد (قرن).</p><p><b>مثال 1:</b> ما در <b>قرن</b> بیست و یکم زندگی می‌کنیم.</p><p><b>توضیح 2:</b> اغلب به زمان خاصی در گذشته در تاریخ اشاره دارد.</p><p><b>مثال 2:</b> این خانه متعلق به <b>قرن</b> گذشته است.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Rzeczownik</p><p><b>Wyjaśnienie 1:</b> Okres trwający dokładnie sto lat (wiek).</p><p><b>Przykład 1:</b> Żyjemy w XXI <b>wieku</b>.</p><p><b>Wyjaśnienie 2:</b> Często odnosi się do określonego minionego czasu w historii.</p><p><b>Przykład 2:</b> Ten dom pochodzi z ubiegłego <b>wieku</b>.</p>",
+            "ru": "<p><b>Часть речи:</b> Существительное</p><p><b>Объяснение 1:</b> Период, охватывающий ровно сто лет (век).</p><p><b>Пример 1:</b> Мы живем в 21 <b>веке</b>.</p><p><b>Объяснение 2:</b> Часто относится к определенному прошлому времени в истории.</p><p><b>Пример 2:</b> Этот дом из прошлого <b>века</b>.</p>",
+            "es": "<p><b>Clase de palabra:</b> Sustantivo</p><p><b>Explicación 1:</b> Un período que abarca exactamente cien años (siglo).</p><p><b>Ejemplo 1:</b> Vivimos en el <b>siglo</b> 21.</p><p><b>Explicación 2:</b> A menudo se refiere a un tiempo pasado específico en la historia.</p><p><b>Ejemplo 2:</b> Esta casa es del <b>siglo</b> pasado.</p>",
+            "sv": "<p><b>Ordklass:</b> Substantiv</p><p><b>Förklaring 1:</b> En period som spänner över exakt hundra år (århundrade).</p><p><b>Exempel 1:</b> Vi lever på 2000-talet (21:a <b>århundradet</b>).</p><p><b>Förklaring 2:</b> Refererar ofta till en specifik förfluten tid i historien.</p><p><b>Exempel 2:</b> Det här huset är från förra <b>århundradet</b>.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> คำนาม</p><p><b>คำอธิบาย 1:</b> ช่วงเวลาหนึ่งร้อยปีพอดี (ศตวรรษ)</p><p><b>ตัวอย่าง 1:</b> เราอยู่ใน<b>ศตวรรษ</b>ที่ 21</p><p><b>คำอธิบาย 2:</b> มักอ้างถึงเวลาในอดีตเฉพาะเจาะจงในประวัติศาสตร์</p><p><b>ตัวอย่าง 2:</b> บ้านหลังนี้มาจาก<b>ศตวรรษ</b>ที่แล้ว</p>",
+            "uk": "<p><b>Частина мови:</b> Іменник</p><p><b>Пояснення 1:</b> Період, що триває рівно сто років (століття).</p><p><b>Приклад 1:</b> Ми живемо у 21 <b>столітті</b>.</p><p><b>Пояснення 2:</b> Часто стосується певного минулого часу в історії.</p><p><b>Приклад 2:</b> Цей будинок з минулого <b>століття</b>.</p>",
+            "vi": "<p><b>Loại từ:</b> Danh từ</p><p><b>Giải thích 1:</b> Một khoảng thời gian kéo dài chính xác một trăm năm (thế kỷ).</p><p><b>Ví dụ 1:</b> Chúng ta đang sống ở <b>thế kỷ</b> 21.</p><p><b>Giải thích 2:</b> Thường dùng để chỉ một khoảng thời gian cụ thể trong quá khứ.</p><p><b>Ví dụ 2:</b> Ngôi nhà này có từ <b>thế kỷ</b> trước.</p>"
         }
     },
     { 
         text: "sitt", 
-        is_exp: "<p><b>Orðflokkur:</b> Fornafn (eignarfornafn)</p><p><b>Útskýring:</b> Vísar til þess sem einhver á eða tilheyrir honum. Er í hvorugkyni (t.d. sitt barn, sitt hús, sitt dót).</p><p><b>Samheiti:</b> eigið.</p><p><b>Dæmi:</b> Barnið lék sér með dótið <b>sitt</b>.</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Eignarfornafn (hvorugkyn)</p><p><b>Útskýring 1:</b> Vísar til þess sem einhver á eða tilheyrir honum (t.d. sitt barn, sitt dót).</p><p><b>Dæmi 1:</b> Barnið lék sér með dótið <b>sitt</b>.</p><p><b>Útskýring 2:</b> Notað í föstum orðasamböndum til að dreifa hlutum á fólk (sitt hvort / sitt hvor).</p><p><b>Dæmi 2:</b> Þau fengu eplið <b>sitt</b> hvort.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> يشير إلى ما يمتلكه شخص ما.<br><b>مثال:</b> لعب الطفل بلعبتـ<b>ـه</b>.</div>",
-            "da": "<b>Forklaring:</b> Refererer til det, nogen ejer (sit).<br><b>Eksempel:</b> Barnet legede med <b>sit</b> legetøj.",
-            "en": "<b>Explanation:</b> Referring to what someone owns (its/their/his/hers).<br><b>Example:</b> The child played with <b>its</b> (their) toy.",
-            "tl": "<b>Paliwanag:</b> Tumutukoy sa pag-aari ng isang tao.<br><b>Halimbawa:</b> Naglaro ang bata sa <b>kanyang</b> laruan.",
-            "no": "<b>Forklaring:</b> Refererer til det noen eier (sitt).<br><b>Eksempel:</b> Barnet lekte med leketøyet <b>sitt</b>.",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> به آنچه کسی مالک آن است اشاره دارد.<br><b>مثال:</b> کودک با اسباب‌بازی <b>خودش</b> بازی کرد.</div>",
-            "pl": "<b>Wyjaśnienie:</b> Odnoszący się do własności (swój).<br><b>Przykład:</b> Dziecko bawiło się <b>swoją</b> zabawką.",
-            "ru": "<b>Объяснение:</b> Указывает на принадлежность (свой/своё).<br><b>Пример:</b> Ребенок играл со <b>своей</b> игрушкой.",
-            "es": "<b>Explicación:</b> Se refiere a lo que alguien posee (su).<br><b>Ejemplo:</b> El niño jugó con <b>su</b> juguete.",
-            "sv": "<b>Förklaring:</b> Refererar till vad någon äger (sitt).<br><b>Exempel:</b> Barnet lekte med <b>sin/sitt</b> leksak.",
-            "th": "<b>คำอธิบาย:</b> แสดงความเป็นเจ้าของ<br><b>ตัวอย่าง:</b> เด็กเล่นกับของเล่นของ<b>เขา</b>",
-            "uk": "<b>Пояснення:</b> Вказує на приналежність (свій).<br><b>Приклад:</b> Дитина гралася <b>своєю</b> іграшкою.",
-            "vi": "<b>Giải thích:</b> Chỉ những gì một người sở hữu (của mình).<br><b>Ví dụ:</b> Đứa trẻ chơi với đồ chơi <b>của mình</b>."
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> ضمير ملكية</p><p><b>الشرح 1:</b> يشير إلى ما يمتلكه شخص ما أو يخصه.</p><p><b>المثال 1:</b> لعب الطفل بلعبتـ<b>ـه</b>.</p><p><b>الشرح 2:</b> يستخدم لتوزيع الأشياء بالتساوي (كل شخص يحصل على شيء خاص به).</p><p><b>المثال 2:</b> حصل كل منهما على تفاحتـ<b>ـه</b>.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Ejestedord (Pronomen)</p><p><b>Forklaring 1:</b> Refererer til det, nogen ejer (sit).</p><p><b>Eksempel 1:</b> Barnet legede med <b>sit</b> legetøj.</p><p><b>Forklaring 2:</b> Bruges om fordeling af ting (hver sit).</p><p><b>Eksempel 2:</b> De fik <b>hvert sit</b> æble.</p>",
+            "en": "<p><b>Word class:</b> Pronoun (Possessive)</p><p><b>Explanation 1:</b> Referring to what someone owns (its/their/his/hers).</p><p><b>Example 1:</b> The child played with <b>their (its)</b> toy.</p><p><b>Explanation 2:</b> Used in phrases to distribute things equally (each their own).</p><p><b>Example 2:</b> They received one apple <b>each (their own)</b>.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Panghalip paari</p><p><b>Paliwanag 1:</b> Tumutukoy sa pag-aari ng isang tao.</p><p><b>Halimbawa 1:</b> Naglaro ang bata sa <b>kanyang</b> laruan.</p><p><b>Paliwanag 2:</b> Ginagamit para ipamahagi ang mga bagay nang pantay (bawat isa sa kanila).</p><p><b>Halimbawa 2:</b> Nakatanggap sila ng mansanas <b>bawat isa</b>.</p>",
+            "no": "<p><b>Ordklasse:</b> Eiendomsord (Pronomen)</p><p><b>Forklaring 1:</b> Refererer til det noen eier (sitt).</p><p><b>Eksempel 1:</b> Barnet lekte med leketøyet <b>sitt</b>.</p><p><b>Forklaring 2:</b> Brukes ved fordeling av ting (hver sitt).</p><p><b>Eksempel 2:</b> De fikk <b>hvert sitt</b> eple.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> ضمیر ملکی</p><p><b>توضیح 1:</b> به آنچه کسی مالک آن است یا متعلق به اوست اشاره دارد.</p><p><b>مثال 1:</b> کودک با اسباب‌بازی <b>خودش</b> بازی کرد.</p><p><b>توضیح 2:</b> برای توزیع مساوی چیزها بین افراد استفاده می‌شود (هر کدام مال خود را).</p><p><b>مثال 2:</b> آنها <b>هر کدام</b> یک سیب دریافت کردند.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Zaimek dzierżawczy</p><p><b>Wyjaśnienie 1:</b> Odnosi się do własności (swój/swoje).</p><p><b>Przykład 1:</b> Dziecko bawiło się <b>swoją</b> zabawką.</p><p><b>Wyjaśnienie 2:</b> Używane do rozdziału rzeczy (każdemu swoje).</p><p><b>Przykład 2:</b> Dostali <b>po jednym (swoim)</b> jabłku.</p>",
+            "ru": "<p><b>Часть речи:</b> Притяжательное местоимение</p><p><b>Объяснение 1:</b> Указывает на принадлежность (свой/своё).</p><p><b>Пример 1:</b> Ребенок играл со <b>своей</b> игрушкой.</p><p><b>Объяснение 2:</b> Используется для распределения вещей (каждый своё).</p><p><b>Пример 2:</b> Они получили <b>каждый по своему</b> яблоку.</p>",
+            "es": "<p><b>Clase de palabra:</b> Pronombre posesivo</p><p><b>Explicación 1:</b> Se refiere a lo que alguien posee (su / suyo).</p><p><b>Ejemplo 1:</b> El niño jugó con <b>su</b> juguete.</p><p><b>Explicación 2:</b> Se utiliza para distribuir cosas (cada uno lo suyo).</p><p><b>Ejemplo 2:</b> Recibieron una manzana <b>cada uno</b>.</p>",
+            "sv": "<p><b>Ordklass:</b> Possessivt pronomen</p><p><b>Förklaring 1:</b> Refererar till vad någon äger (sitt).</p><p><b>Exempel 1:</b> Barnet lekte med <b>sin/sitt</b> leksak.</p><p><b>Förklaring 2:</b> Används för att fördela saker (varsitt).</p><p><b>Exempel 2:</b> De fick <b>varsitt</b> äpple.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> สรรพนามแสดงความเป็นเจ้าของ</p><p><b>คำอธิบาย 1:</b> แสดงความเป็นเจ้าของของบางคน (ของเขา)</p><p><b>ตัวอย่าง 1:</b> เด็กเล่นกับของเล่น<b>ของเขา</b></p><p><b>คำอธิบาย 2:</b> ใช้แจกจ่ายสิ่งของเท่า ๆ กัน (แต่ละคน)</p><p><b>ตัวอย่าง 2:</b> พวกเขาได้รับแอปเปิ้ลคนละลูก (ของ<b>แต่ละคน</b>)</p>",
+            "uk": "<p><b>Частина мови:</b> Присвійний займенник</p><p><b>Пояснення 1:</b> Вказує на приналежність (свій/своє).</p><p><b>Приклад 1:</b> Дитина гралася <b>своєю</b> іграшкою.</p><p><b>Пояснення 2:</b> Використовується для розподілу речей (кожному своє).</p><p><b>Приклад 2:</b> Вони отримали <b>кожен по своєму</b> яблуку.</p>",
+            "vi": "<p><b>Loại từ:</b> Đại từ sở hữu</p><p><b>Giải thích 1:</b> Chỉ những gì một người sở hữu (của mình).</p><p><b>Ví dụ 1:</b> Đứa trẻ chơi với đồ chơi <b>của mình</b>.</p><p><b>Giải thích 2:</b> Dùng để phân phát đồ vật (mỗi người một phần riêng).</p><p><b>Ví dụ 2:</b> Họ nhận được <b>mỗi người (phần của mình)</b> một quả táo.</p>"
         }
     },
     { 
         text: "hvert", 
-        is_exp: "<p><b>Orðflokkur:</b> Fornafn / Spurnaratviksorð</p><p><b>Útskýring:</b> Getur verið óákveðið fornafn (sérhvert) eða spurnaratviksorð sem spyr um stefnu eða stað, eins og í dæminu hér.</p><p><b>Samheiti:</b> hvaða leið, á hvaða stað.</p><p><b>Dæmi:</b> <b>Hvert</b> ertu að fara?</p>",
+        is_exp: "<p><b>Orðflokkur:</b> Fornafn / Spurnaratviksorð</p><p><b>Útskýring 1:</b> Spurnaratviksorð sem spyr um stefnu eða áfangastað.</p><p><b>Dæmi 1:</b> <b>Hvert</b> ertu að fara?</p><p><b>Útskýring 2:</b> Einnig óákveðið fornafn í hvorugkyni sem þýðir 'sérhvert' eða 'allir stakir hlutar'.</p><p><b>Dæmi 2:</b> <b>Hvert</b> barn fær litla gjöf.</p>",
         translations: {
-            "ar": "<div dir='rtl' style='text-align: right;'><b>الشرح:</b> أداة تسأل عن الاتجاه (إلى أين).<br><b>مثال:</b> <b>إلى أين</b> أنت ذاهب؟</div>",
-            "da": "<b>Forklaring:</b> Spørgeord om retning (hvorhen).<br><b>Eksempel:</b> <b>Hvor</b> skal du hen?",
-            "en": "<b>Explanation:</b> Question word asking about direction or destination (where to).<br><b>Example:</b> <b>Where</b> are you going?",
-            "tl": "<b>Paliwanag:</b> Nagtatanong tungkol sa direksyon (saan papunta).<br><b>Halimbawa:</b> <b>Saan</b> ka pupunta?",
-            "no": "<b>Forklaring:</b> Spørreord om retning (hvor).<br><b>Eksempel:</b> <b>Hvor</b> skal du?",
-            "fa": "<div dir='rtl' style='text-align: right;'><b>توضیح:</b> در مورد جهت می‌پرسد (کجا / به کجا).<br><b>مثال:</b> <b>کجا</b> داری می‌روی؟</div>",
-            "pl": "<b>Wyjaśnienie:</b> Pytający o kierunek (dokąd).<br><b>Przykład:</b> <b>Dokąd</b> idziesz?",
-            "ru": "<b>Объяснение:</b> Спрашивает о направлении (куда).<br><b>Пример:</b> <b>Куда</b> ты идешь?",
-            "es": "<b>Explicación:</b> Pregunta sobre la dirección (a dónde).<br><b>Ejemplo:</b> ¿<b>A dónde</b> vas?",
-            "sv": "<b>Förklaring:</b> Frågeord om riktning (vart).<br><b>Exempel:</b> <b>Vart</b> är du på väg?",
-            "th": "<b>คำอธิบาย:</b> เพื่อถามเกี่ยวกับทิศทาง (ที่ไหน / ไปไหน)<br><b>ตัวอย่าง:</b> คุณกำลังจะไป<b>ไหน</b>?",
-            "uk": "<b>Пояснення:</b> Запитує про напрямок (куди).<br><b>Приклад:</b> <b>Куди</b> ти йдеш?",
-            "vi": "<b>Giải thích:</b> Hỏi về hướng đi (đi đâu).<br><b>Ví dụ:</b> Bạn đang đi <b>đâu</b> vậy?"
+            "ar": "<div dir='rtl' style='text-align: right;'><p><b>نوع الكلمة:</b> ضمير / أداة استفهام</p><p><b>الشرح 1:</b> أداة تسأل عن الاتجاه أو الوجهة (إلى أين).</p><p><b>المثال 1:</b> <b>إلى أين</b> أنت ذاهب؟</p><p><b>الشرح 2:</b> ضمير غير محدد بمعنى 'كل واحد' أو 'الجميع'.</p><p><b>المثال 2:</b> يحصل <b>كل</b> طفل على هدية صغيرة.</p></div>",
+            "da": "<p><b>Ordklasse:</b> Stedord (Pronomen) / Spørgeord</p><p><b>Forklaring 1:</b> Spørgeord om retning eller destination (hvorhen).</p><p><b>Eksempel 1:</b> <b>Hvor</b> skal du hen?</p><p><b>Forklaring 2:</b> Også et ubestemt stedord, der betyder 'hvert' eller 'enhver'.</p><p><b>Eksempel 2:</b> <b>Hvert</b> barn får en lille gave.</p>",
+            "en": "<p><b>Word class:</b> Pronoun / Question word</p><p><b>Explanation 1:</b> Question word asking about direction or destination (where to).</p><p><b>Example 1:</b> <b>Where</b> are you going?</p><p><b>Explanation 2:</b> Also an indefinite pronoun meaning 'each' or 'every'.</p><p><b>Example 2:</b> <b>Every</b> child gets a small gift.</p>",
+            "tl": "<p><b>Bahagi ng pananalita:</b> Panghalip / Salitang patanong</p><p><b>Paliwanag 1:</b> Nagtatanong tungkol sa direksyon o destinasyon (saan papunta).</p><p><b>Halimbawa 1:</b> <b>Saan</b> ka pupunta?</p><p><b>Paliwanag 2:</b> Isa ring di-tiyak na panghalip na nangangahulugang 'bawat'.</p><p><b>Halimbawa 2:</b> <b>Bawat</b> bata ay nakakakuha ng maliit na regalo.</p>",
+            "no": "<p><b>Ordklasse:</b> Pronomen / Spørreord</p><p><b>Forklaring 1:</b> Spørreord om retning eller destinasjon (hvor).</p><p><b>Eksempel 1:</b> <b>Hvor</b> skal du?</p><p><b>Forklaring 2:</b> Også et ubestemt pronomen som betyr 'hvert' eller 'enhver'.</p><p><b>Eksempel 2:</b> <b>Hvert</b> barn får en liten gave.</p>",
+            "fa": "<div dir='rtl' style='text-align: right;'><p><b>نوع کلمه:</b> ضمیر / کلمه پرسشی</p><p><b>توضیح 1:</b> در مورد جهت یا مقصد می‌پرسد (کجا / به کجا).</p><p><b>مثال 1:</b> <b>کجا</b> داری می‌روی؟</p><p><b>توضیح 2:</b> همچنین یک ضمیر نامعین به معنای 'هر یک' یا 'همه'.</p><p><b>مثال 2:</b> <b>هر</b> کودک یک هدیه کوچک دریافت می‌کند.</p></div>",
+            "pl": "<p><b>Część mowy:</b> Zaimek / Zaimek pytający</p><p><b>Wyjaśnienie 1:</b> Zaimek pytający o kierunek lub cel podróży (dokąd).</p><p><b>Przykład 1:</b> <b>Dokąd</b> idziesz?</p><p><b>Wyjaśnienie 2:</b> Także zaimek nieokreślony oznaczający 'każde' lub 'wszyscy'.</p><p><b>Przykład 2:</b> <b>Każde</b> dziecko otrzymuje mały prezent.</p>",
+            "ru": "<p><b>Часть речи:</b> Местоимение / Вопросительное слово</p><p><b>Объяснение 1:</b> Спрашивает о направлении или пункте назначения (куда).</p><p><b>Пример 1:</b> <b>Куда</b> ты идешь?</p><p><b>Объяснение 2:</b> Также неопределенное местоимение, означающее 'каждый'.</p><p><b>Пример 2:</b> <b>Каждый</b> ребенок получает небольшой подарок.</p>",
+            "es": "<p><b>Clase de palabra:</b> Pronombre / Palabra interrogativa</p><p><b>Explicación 1:</b> Pregunta sobre la dirección o destino (a dónde).</p><p><b>Ejemplo 1:</b> ¿<b>A dónde</b> vas?</p><p><b>Explicación 2:</b> También un pronombre indefinido que significa 'cada' o 'todo'.</p><p><b>Ejemplo 2:</b> <b>Cada</b> niño recibe un pequeño regalo.</p>",
+            "sv": "<p><b>Ordklass:</b> Pronomen / Frågeord</p><p><b>Förklaring 1:</b> Frågeord om riktning eller destination (vart).</p><p><b>Exempel 1:</b> <b>Vart</b> är du på väg?</p><p><b>Förklaring 2:</b> Även ett obestämt pronomen som betyder 'varje' eller 'vart och ett'.</p><p><b>Exempel 2:</b> <b>Varje</b> barn får en liten present.</p>",
+            "th": "<p><b>ชนิดของคำ:</b> สรรพนาม / คำแสดงคำถาม</p><p><b>คำอธิบาย 1:</b> คำถามที่ถามเกี่ยวกับทิศทางหรือจุดหมายปลายทาง (ไปไหน)</p><p><b>ตัวอย่าง 1:</b> คุณกำลังจะไป<b>ไหน</b>?</p><p><b>คำอธิบาย 2:</b> นอกจากนี้ยังเป็นสรรพนามไม่เจาะจงที่แปลว่า 'ทุก ๆ'</p><p><b>ตัวอย่าง 2:</b> เด็ก<b>ทุก</b>คนได้รับของขวัญชิ้นเล็ก ๆ</p>",
+            "uk": "<p><b>Частина мови:</b> Займенник / Питальне слово</p><p><b>Пояснення 1:</b> Запитує про напрямок або пункт призначення (куди).</p><p><b>Приклад 1:</b> <b>Куди</b> ти йдеш?</p><p><b>Пояснення 2:</b> Також неозначений займенник, що означає 'кожен'.</p><p><b>Приклад 2:</b> <b>Кожна</b> дитина отримує невеликий подарунок.</p>",
+            "vi": "<p><b>Loại từ:</b> Đại từ / Từ để hỏi</p><p><b>Giải thích 1:</b> Hỏi về hướng đi hoặc điểm đến (đi đâu).</p><p><b>Ví dụ 1:</b> Bạn đang đi <b>đâu</b> vậy?</p><p><b>Giải thích 2:</b> Cũng là một đại từ bất định có nghĩa là 'mỗi' hoặc 'mọi'.</p><p><b>Ví dụ 2:</b> <b>Mỗi</b> đứa trẻ đều nhận được một món quà nhỏ.</p>"
         }
     }
 ];
